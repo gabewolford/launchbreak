@@ -1,12 +1,16 @@
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
+
 
 export default function Navbar() {
     return (
         <nav className="flex items-center justify-between flex-wrap bg-slate-500 p-4">
             <div className="flex items-center flex-shrink-0 text-white mr-6">
-                <Link to="/">
-                    <a className="text-white font-semibold text-2xl tracking-tight hover:text-orange-300 hover:cursor-pointer">Launchbreak</a>
-                </Link>
+                <NavLink 
+                    to="/"
+                    className="text-white font-semibold text-2xl tracking-tight hover:text-orange-300 hover:cursor-pointer"
+                >
+                    <p>Launchbreak</p>
+                </NavLink>
             </div>
             <div className="block md:hidden">
                 <button className="flex items-center px-3 py-2 border rounded text-white border-white-400 hover:text-white hover:border-white">
@@ -16,36 +20,45 @@ export default function Navbar() {
             <div className="w-full block flex-end md:flex md:items-center md:w-auto">
                 <div className="text-sm md:flex-grow w-full block flex-grow md:flex md:items-center md:w-auto">
                     <div className="mr-4">
-                        <Link to="/launches">
-                            <a href="#" className="block mt-4 md:inline-block md:mt-0 text-white hover:text-orange-300 mr-4">
-                                Launches
-                            </a>
-                        </Link>
-                        <Link to="/news">
-                            <a href="#" className="block mt-4 md:inline-block md:mt-0 text-white hover:text-orange-300 mr-4">
-                                News
-                            </a>
-                        </Link>
-                        <Link to="/agencies">
-                            <a href="#" className="block mt-4 md:inline-block md:mt-0 text-white hover:text-orange-300 mr-4">
-                                Agencies
-                            </a>
-                        </Link>
-                        <Link to="/astronauts">
-                            <a href="#" className="block mt-4 md:inline-block md:mt-0 text-white hover:text-orange-300 mr-4">
-                                Astronauts
-                            </a>
-                        </Link>
-                        <Link to="/spacecraft">
-                            <a href="#" className="block mt-4 md:inline-block md:mt-0 text-white hover:text-orange-300">
-                                Spacecraft
-                            </a>
-                        </Link>
+                        <ul>
+                        <NavLink 
+                            to="/launches"
+                            className="block mt-4 md:inline-block md:mt-0 text-white hover:text-orange-300 mr-4"
+                        >
+                            <li>Launches</li>
+                        </NavLink>
+                        <NavLink 
+                            to="/news"
+                            className="block mt-4 md:inline-block md:mt-0 text-white hover:text-orange-300 mr-4"
+                        >
+                            <li>News</li>
+                        </NavLink>
+                        <NavLink 
+                            to="/agencies"
+                            className="block mt-4 md:inline-block md:mt-0 text-white hover:text-orange-300 mr-4"
+                        >
+                            <li>Agencies</li>
+                        </NavLink>
+                        <NavLink 
+                            to="/astronauts"
+                            className="block mt-4 md:inline-block md:mt-0 text-white hover:text-orange-300 mr-4"
+                        >
+                            <li>Astronauts</li>
+                        </NavLink>
+                        <NavLink 
+                            to="/spacecraft"
+                            className="block mt-4 md:inline-block md:mt-0 text-white hover:text-orange-300"
+                        >
+                            <li>Spacecraft</li>
+                        </NavLink>
+                        </ul>
                     </div>
                     <div>
-                        <a href="#" className="inline-block text-sm font-bold px-4 py-2 leading-none rounded text-white hover:border-transparent bg-orange-500 hover:bg-orange-400 hover:text-white mt-4 md:mt-0">
-                            CTA
-                        </a>
+                        <NavLink to="#">
+                            <p className="inline-block text-sm font-bold px-4 py-2 leading-none rounded text-white hover:border-transparent bg-orange-500 hover:bg-orange-400 hover:text-white mt-4 md:mt-0">
+                                CTA
+                            </p>
+                        </NavLink>
                     </div>
                 </div>
             </div>

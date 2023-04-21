@@ -11,3 +11,7 @@
 body {
   min-height: 100vh;
 }
+
+.active {
+  color: #fb923c;
+}
