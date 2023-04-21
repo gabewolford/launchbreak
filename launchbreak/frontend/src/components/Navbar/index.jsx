@@ -2,7 +2,8 @@ export default function Navbar() {
     return (
         <nav className="flex items-center justify-between flex-wrap bg-slate-500 p-4">
             <div className="flex items-center flex-shrink-0 text-white mr-6">
-                <span className="font-semibold text-2xl tracking-tight">Launchbreak</span>
+
+                    <a className="text-white font-semibold text-2xl tracking-tight hover:text-orange-300 hover:cursor-pointer">Launchbreak</a>
             </div>
             <div className="block md:hidden">
                 <button className="flex items-center px-3 py-2 border rounded text-white border-white-400 hover:text-white hover:border-white">
@@ -22,8 +23,8 @@ export default function Navbar() {
                             Agencies
                         </a>
                     </div>
-                    <div >
-                        <a href="#" className="inline-block text-sm px-4 py-2 leading-none rounded text-white  hover:border-transparent bg-orange-500 hover:bg-orange-400 hover:text-white mt-4 md:mt-0">
+                    <div>
+                        <a href="#" className="inline-block text-sm px-4 py-2 leading-none rounded text-white hover:border-transparent bg-orange-500 hover:bg-orange-400 hover:text-white mt-4 md:mt-0">
                             CTA
                         </a>
                     </div>
