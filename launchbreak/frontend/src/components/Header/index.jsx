@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom"
 
 
-export default function Navbar() {
+export default function Header() {
     return (
-        <nav className="flex items-center justify-between flex-wrap bg-slate-500 p-4">
+
+        <nav className="flex items-center justify-between flex-wrap p-4">
             <div className="flex items-center flex-shrink-0 text-white mr-6">
                 <NavLink 
                     to="/"
@@ -23,42 +24,38 @@ export default function Navbar() {
                         <ul>
                         <NavLink 
                             to="/launches"
-                            className="block mt-4 md:inline-block md:mt-0 text-white hover:text-orange-300 mr-4"
+                            className="block mt-4 font-semibold md:inline-block md:mt-0 text-white hover:text-orange-300 mx-4"
                         >
                             <li>Launches</li>
                         </NavLink>
                         <NavLink 
                             to="/news"
-                            className="block mt-4 md:inline-block md:mt-0 text-white hover:text-orange-300 mr-4"
+                            className="block mt-4 font-semibold md:inline-block md:mt-0 text-white hover:text-orange-300 mx-4"
                         >
                             <li>News</li>
                         </NavLink>
                         <NavLink 
                             to="/agencies"
-                            className="block mt-4 md:inline-block md:mt-0 text-white hover:text-orange-300 mr-4"
+                            className="block mt-4 font-semibold md:inline-block md:mt-0 text-white hover:text-orange-300 mx-4"
                         >
                             <li>Agencies</li>
                         </NavLink>
                         <NavLink 
-                            to="/astronauts"
-                            className="block mt-4 md:inline-block md:mt-0 text-white hover:text-orange-300 mr-4"
-                        >
-                            <li>Astronauts</li>
-                        </NavLink>
-                        <NavLink 
                             to="/spacecraft"
-                            className="block mt-4 md:inline-block md:mt-0 text-white hover:text-orange-300"
+                            className="block mt-4 font-semibold md:inline-block md:mt-0 text-white hover:text-orange-300 mx-4"
                         >
                             <li>Spacecraft</li>
                         </NavLink>
-                        </ul>
-                    </div>
-                    <div>
-                        <NavLink to="#">
-                            <p className="inline-block text-sm font-bold px-4 py-2 leading-none rounded text-white hover:border-transparent bg-orange-500 hover:bg-orange-400 hover:text-white mt-4 md:mt-0">
-                                CTA
-                            </p>
+                        <NavLink 
+                            to="/astronauts"
+                            className="block mt-4 font-semibold md:inline-block md:mt-0 text-white hover:text-orange-300 mx-4"
+                        >
+                            <li>Astronauts</li>
                         </NavLink>
+                        <NavLink to="/account">
+                            <img src="../src/assets/space-station.svg" alt="account" className="block mt-4 font-semibold md:inline-block md:mt-0 text-white hover:text-orange-300 ml-4"/>
+                        </NavLink>
+                        </ul>
                     </div>
                 </div>
             </div>

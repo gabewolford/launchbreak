@@ -1,7 +1,7 @@
 export default function NewsPage() {
     return (
         <>
-            <h1>News Page</h1>
+            <h1 className="text-white">News Page</h1>
         </>
     )
 }

@@ -1,7 +1,7 @@
 export default function AgenciesPage() {
     return (
         <>
-            <h1>Agencies Page</h1>
+            <h1 className="text-white">Agencies Page</h1>
         </>
     )
 }
