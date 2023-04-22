@@ -14,7 +14,7 @@ export default function AstronautsPage() {
     }, [])
 
 
-    let astronautList = <p className="text-white">Retrieving astronaut data...</p>
+    let astronautList = <p >Retrieving astronaut data...</p>
 
     if (astronauts.length > 0) {
         astronautList = astronauts.map((astronaut, i) => <AstronautCard key={i} astronautData={astronaut} />)

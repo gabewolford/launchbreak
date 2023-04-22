@@ -13,7 +13,7 @@ export default function LaunchesPage() {
     }, [])
 
 
-    let upcomingLaunches = <p className="text-white">Retrieving upcoming launch data...</p>
+    let upcomingLaunches = <p>Retrieving upcoming launch data...</p>
 
     if (launches.length > 0) {
         upcomingLaunches = launches.map((launch, i) => <LaunchCard key={i} launchData={launch} />)
@@ -24,7 +24,6 @@ export default function LaunchesPage() {
             <div className="">
                 {upcomingLaunches}
             </div>
-            
         </>
     )
 }

@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom"
 
-import Header from "../Header"
-import Footer from "../Footer"
+import Head from "../Head"
+import Foot from "../Foot"
 import HomePage from '../HomePage'
 import LaunchesPage from "../LaunchesPage"
 import NewsPage from "../NewsPage"
@@ -18,9 +18,9 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Head />
 
-      <Footer />
+      {/* <Foot /> */}
 
       <Routes>
         <Route path="/" element={<HomePage />} />

@@ -14,7 +14,7 @@ export default function SpacecraftPage() {
     }, [])
 
 
-    let spacecraftList = <p className="text-white">Retrieving spacecraft data...</p>
+    let spacecraftList = <p>Retrieving spacecraft data...</p>
 
     if (spacecrafts.length > 0) {
         spacecraftList = spacecrafts.map((spacecraft, i) => <SpacecraftCard key={i} spacecraftData={spacecraft} />)

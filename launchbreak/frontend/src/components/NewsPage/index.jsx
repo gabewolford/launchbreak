@@ -14,7 +14,7 @@ export default function NewsPage() {
     }, [])
 
 
-    let newsList = <p className="text-white">Retrieving news data...</p>
+    let newsList = <p>Retrieving news data...</p>
 
     if (news.length > 0) {
         newsList = news.map((news, i) => <NewsCard key={i} newsData={news} />)
