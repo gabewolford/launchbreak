@@ -3,7 +3,7 @@ import { getData } from "../../../utils/api"
 import AgencyCard from "../AgencyCard"
 
 
-export default function agenciesPage() {
+export default function AgenciesPage() {
     const [agencies, setAgencies] = useState([])
 
     useEffect(() => {
