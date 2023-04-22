@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react"
-import { getLaunches } from "../../../utils/api"
+import { getData } from "../../../utils/api"
 import LaunchCard from "../LaunchCard"
 
 export default function LaunchesPage() {
     const [launches, setLaunches] = useState([])
 
     useEffect(() => {
-        getLaunches('https://lldev.thespacedevs.com/2.2.0/launch/upcoming/')
+        getData('https://lldev.thespacedevs.com/2.2.0/launch/upcoming/')
             .then(res => {
                 setLaunches(res.results)
             })
@@ -21,7 +21,10 @@ export default function LaunchesPage() {
 
     return (
         <>
-            {upcomingLaunches}
+            <div className="">
+                {upcomingLaunches}
+            </div>
+            
         </>
     )
 }

@@ -8,7 +8,7 @@ export default function Header() {
             <div className="flex items-center flex-shrink-0 text-white mr-6">
                 <NavLink 
                     to="/"
-                    className="text-white font-semibold text-2xl tracking-tight hover:text-orange-300 hover:cursor-pointer"
+                    className="text-white font-semibold text-2xl ml-2 tracking-tight hover:text-orange-300 hover:cursor-pointer"
                 >
                     <p>Launchbreak</p>
                 </NavLink>
