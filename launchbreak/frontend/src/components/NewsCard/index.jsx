@@ -5,7 +5,7 @@ export default function NewsCard({ newsData }) {
                 <img src={newsData.image_url}/>
                 <h2 className="text-2xl font-bold">{newsData.title}</h2>
                 <p>{newsData.summary}</p>
-                <a href={newsData.url}><span className="text-blue-300">Read more...</span></a>
+                <a href={newsData.url} target="_blank"><span className="text-blue-300">Read more...</span></a>
                 <p className="text-sm text-gray-400">Published {Date(newsData.published_at)}</p>
             </div>
         </>

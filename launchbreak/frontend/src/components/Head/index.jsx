@@ -8,7 +8,7 @@ export default function Head() {
         fluid={true}
         id="nav"
         >
-        <NavLink href="/">
+        <NavLink to="/">
             <span className="self-center text-3xl font-bold text-white">
             Launchbreak
             </span>
@@ -18,6 +18,7 @@ export default function Head() {
             <Dropdown
             arrowIcon={false}
             inline={true}
+            className="border-grey rounded-sm"
             label={
                 <Avatar 
                     alt="User settings" 
@@ -29,18 +30,18 @@ export default function Head() {
                 <span className="block text-sm">
                 First Last
                 </span>
-                <span className="block truncate text-sm font-medium">
+                <span className="block truncate text-sm font-bold">
                 gabewolford
                 </span>
             </Dropdown.Header>
-            <Dropdown.Item>
-                Mission Control
+            <Dropdown.Item className="text-white">
+                Account
             </Dropdown.Item>
-            <Dropdown.Item>
+            <Dropdown.Item className="text-white">
                 Settings
             </Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item>
+            <Dropdown.Item className="text-white">
                 Sign out
             </Dropdown.Item>
             </Dropdown>

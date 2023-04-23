@@ -5,7 +5,7 @@ const commentSchema = new mongoose.Schema(
     {
         name: { type: String, required: true },
         commentText: { type: String, min: 0, max: 300, required: true },
-        launchId: { type: Number, required: true },
+        launchId: { type: String, required: true },
     },
     { timestamps: true }
 )
