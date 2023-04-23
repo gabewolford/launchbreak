@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,6 +9,7 @@
   box-sizing: border-box;
   background-color: rgb(45, 45, 45);
   color: white;
+  font-family: 'News Cycle', sans-serif;
 }
 
 body {

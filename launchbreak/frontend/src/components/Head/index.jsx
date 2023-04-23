@@ -9,7 +9,7 @@ export default function Head() {
         id="nav"
         >
         <NavLink href="/">
-            <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+            <span className="self-center text-3xl font-bold text-white">
             Launchbreak
             </span>
         </NavLink>
@@ -18,7 +18,12 @@ export default function Head() {
             <Dropdown
             arrowIcon={false}
             inline={true}
-            label={<Avatar alt="User settings" img="https://media.licdn.com/dms/image/D5603AQEYpl9aHSV4mg/profile-displayphoto-shrink_400_400/0/1676919210013?e=1687392000&v=beta&t=tRPAP6QTHC48o5wyaMGraZ_LfhhdbxeA8jUZSvGHRDs" rounded={true}/>}
+            label={
+                <Avatar 
+                    alt="User settings" 
+                    img="https://media.licdn.com/dms/image/D5603AQEYpl9aHSV4mg/profile-displayphoto-shrink_400_400/0/1676919210013?e=1687392000&v=beta&t=tRPAP6QTHC48o5wyaMGraZ_LfhhdbxeA8jUZSvGHRDs" 
+                    rounded={true}/>
+            }
             >
             <Dropdown.Header>
                 <span className="block text-sm">
