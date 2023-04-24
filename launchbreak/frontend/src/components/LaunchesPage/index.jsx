@@ -1,27 +1,8 @@
-import { useState, useEffect } from "react"
-import { getData } from "../../../utils/api"
-import LaunchCard from "../LaunchCard"
-
-export default function LaunchesPage() {
-    const [launches, setLaunches] = useState([])
-
-    useEffect(() => {
-        getData('https://lldev.thespacedevs.com/2.2.0/launch/upcoming/')
-            .then(res => {
-                setLaunches(res.results)
-            })
-    }, [])
-
-
-    let upcomingLaunches = <p>Retrieving upcoming launch data...</p>
-
-    if (launches.length > 0) {
-        upcomingLaunches = launches.map((launch, i) => <LaunchCard key={i} launchData={launch} />)
-    } 
-
+export default function LaunchesPage({ upcomingLaunches }) {
     return (
         <>
-            <div className="">
+            <h1 className="ml-6 mt-6 text-xl font-bold">Upcoming Launches:</h1>
+            <div className="grid grid-cols-1">
                 {upcomingLaunches}
             </div>
         </>

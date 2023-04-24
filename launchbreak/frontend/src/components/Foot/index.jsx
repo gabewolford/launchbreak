@@ -12,10 +12,16 @@ export default function Foot() {
             year={2023}
         />
         <Footer.LinkGroup>
-            <Footer.Link href="#">
+            <Footer.Link 
+            href="#"
+            className="mx-2"
+            >
             Privacy Policy
             </Footer.Link>
-            <Footer.Link href="#">
+            <Footer.Link 
+            href="#"
+            className="mx-2"
+            >
             Contact
             </Footer.Link>
         </Footer.LinkGroup>

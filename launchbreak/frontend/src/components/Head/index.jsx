@@ -14,9 +14,9 @@ export default function Head() {
             </span>
         </NavLink>
 
-        <div className="flex md:order-2">
+        <div className="flex md:order-2 hover:bg-transparent mb-1">
             <Dropdown
-            arrowIcon={false}
+            arrowIcon={true}
             inline={true}
             className="border-grey rounded-sm"
             label={
@@ -28,20 +28,20 @@ export default function Head() {
             >
             <Dropdown.Header>
                 <span className="block text-sm">
-                First Last
+                Welcome back,
                 </span>
                 <span className="block truncate text-sm font-bold">
-                gabewolford
+                username
                 </span>
             </Dropdown.Header>
-            <Dropdown.Item className="text-white">
+            <Dropdown.Item className="hover:bg-transparent hover:text-orange-400 text-white">
                 Account
             </Dropdown.Item>
-            <Dropdown.Item className="text-white">
+            <Dropdown.Item className="hover:bg-transparent hover:text-orange-400 text-white">
                 Settings
             </Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item className="text-white">
+            <Dropdown.Item className=" hover:bg-transparent hover:text-orange-400 text-white">
                 Sign out
             </Dropdown.Item>
             </Dropdown>
