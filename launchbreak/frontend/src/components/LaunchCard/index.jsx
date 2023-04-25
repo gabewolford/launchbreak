@@ -18,7 +18,7 @@ export default function LaunchCard({ launchData, setDetailPageId }) {
                         <h1 className="text-lg font-bold">{launchData.name}</h1>
                         <p>{launchData.launch_service_provider.name}</p>
                         <p>{launchData.pad.location.name}</p>
-                        <p className="text-sm text-gray-400">{Date(launchData.net)}</p> 
+                        <p className="text-sm text-gray-400">{launchData.net}</p> 
                     </div>
                 </div>
             </div>

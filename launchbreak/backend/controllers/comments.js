@@ -21,7 +21,9 @@ const db = require('../models')
 --------------------------------------------------------------- */
 // Index Route (GET/Read): Will display all comments
 router.get('/launch/:launchId', function (req, res) {
-    db.Comment.find({ launchId: req.params.launchId })
+    db.Comment.find({ 
+            launchId: req.params.launchId 
+    })
         .then(comments => res.json(comments))
 })
 
