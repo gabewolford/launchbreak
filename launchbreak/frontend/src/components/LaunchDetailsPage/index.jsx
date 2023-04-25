@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react'
 import { getData } from '../../../utils/api'
 
-export default function LaunchDetailsPage({ launchData, updateLaunch, detailPageId }) {
+export default function LaunchDetailsPage({ launchData, updateDetails, detailPageId }) {
     
     useEffect(() => {
         getData(`https://lldev.thespacedevs.com/2.2.0/launch/upcoming/${detailPageId}`)
             .then(res => {
-                updateLaunch(res)
-                console.log(res)
+                updateDetails(res)
         })
     }, [])
 
     let page = <p>Loading launch details...</p>
     if (launchData) {
-        page = <div className='m-6 max-h-fit max-w-fit'>
+        page = <>
+                <div className='m-6 max-h-fit max-w-fit'>
+                    <h1 className='text-xl mb-4'>Launch Details:</h1>
                     <div className="border-2 border-white">
                         <div>
                             <img src={launchData.image} className="w-full"/>
@@ -26,6 +27,10 @@ export default function LaunchDetailsPage({ launchData, updateLaunch, detailPage
                         </div>
                     </div>
                 </div>
+                <div className='m-6'>
+                    <h1 className='text-xl mb-4'>Comments:</h1>
+                </div>
+                </>
     }
 
     return (

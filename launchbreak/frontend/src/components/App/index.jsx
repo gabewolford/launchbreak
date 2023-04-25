@@ -111,11 +111,11 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/launches" element={<LaunchesPage upcomingLaunches={upcomingLaunches} setDetailPageId={setDetailPageId}/>} />
-        <Route path="/launch/:slug" element={<LaunchDetailsPage launchData={detailPage} updateLaunch={setDetailPage} detailPageId={detailPageId} />}/>
+        <Route path="/launch/:slug" element={<LaunchDetailsPage launchData={detailPage} updateDetails={setDetailPage} detailPageId={detailPageId} />}/>
         <Route path="/news" element={<NewsPage newsList={newsList}/>} />
         <Route path="/agencies" element={<AgenciesPage agencyList={agencyList}/>} />
         <Route path="/astronauts" element={<AstronautsPage astronautList={astronautList} setDetailPageId={setDetailPageId}/>} />
-        <Route path="/astronaut/:id" element={<AstronautDetailsPage detailPageId={detailPageId}/>} />
+        <Route path="/astronaut/:id" element={<AstronautDetailsPage astronautData={detailPage} updateDetails={setDetailPage} detailPageId={detailPageId}/>} />
         <Route path="/spacecraft" element={<SpacecraftPage spacecraftList={spacecraftList}/>} />
         <Route path="/account" element={<AccountPage />} />
         <Route path="/*" element={<NotFoundPage />} />
