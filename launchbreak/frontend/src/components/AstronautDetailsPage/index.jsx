@@ -4,10 +4,10 @@ import { getData } from '../../../utils/api'
 export default function AstronautDetailsPage({ astronautData, updateDetails, detailPageId }) {
     
     useEffect(() => {
+        if (!astronautData) {
             getData(`https://lldev.thespacedevs.com/2.2.0/astronaut/${detailPageId}`)
-                .then(res => {
-                    updateDetails(res)
-                })
+                .then(res => updateDetails(res))
+        }
     }, [])
 
     

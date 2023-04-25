@@ -22,12 +22,12 @@ import './styles.css'
 
 function App() {
   const [launches, setLaunches] = useState([])
-  const [detailPage, setDetailPage] = useState()
   const [detailPageId , setDetailPageId] = useState(null)
   const [news, setNews] = useState([])
   const [agencies, setAgencies] = useState([])
   const [spacecrafts, setSpacecraft] = useState([])
   const [astronauts, setAstronauts] = useState([])
+  const [detailPage, setDetailPage] = useState()
 
 
   useEffect(() => {
