@@ -14,7 +14,7 @@ export default function Head() {
             </span>
         </NavLink>
 
-        <div className="flex md:order-2 hover:bg-transparent mb-1">
+        <div className="flex md:order-2 mb-1">
             <Dropdown
             arrowIcon={true}
             inline={true}
@@ -27,21 +27,21 @@ export default function Head() {
             }
             >
             <Dropdown.Header>
-                <span className="block text-sm">
+                <span className="block text-sm text-black">
                 Welcome back,
                 </span>
-                <span className="block truncate text-sm font-bold">
+                <span className="block truncate text-sm font-bold text-black">
                 username
                 </span>
             </Dropdown.Header>
-            <Dropdown.Item className="hover:bg-transparent hover:text-orange-400 text-white">
+            <Dropdown.Item className="hover:bg-transparent hover:text-orange-400 text-black">
                 Account
             </Dropdown.Item>
-            <Dropdown.Item className="hover:bg-transparent hover:text-orange-400 text-white">
+            <Dropdown.Item className="hover:bg-transparent hover:text-orange-400 text-black">
                 Settings
             </Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item className=" hover:bg-transparent hover:text-orange-400 text-white">
+            <Dropdown.Item className=" hover:bg-transparent hover:text-orange-400 text-black">
                 Sign out
             </Dropdown.Item>
             </Dropdown>
