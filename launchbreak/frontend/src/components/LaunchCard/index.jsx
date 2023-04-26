@@ -15,14 +15,13 @@ export default function LaunchCard({ launchData, setDetailPageId }) {
                 </div>
                 <div className="flex-1 mt-4 lg:mt-0">
                     <div className="flex flex-col justify-center">
-                        <h1 className="text-2xl font-bold mb-2">{launchData.name}</h1>
+                    <h1 className="text-2xl font-bold mb-2">{launchData.name}</h1>
+                                <p className='mb-3 text-blue-300 text-lg font-bold'>{launchData?.launch_service_provider?.name}</p>
 
-                        <p className='mb-3'>{launchData.launch_service_provider.name}</p>
-
-                        <p className="mb-4">{new Date(launchData.net).toLocaleString()}</p> 
+                                <p className="mb-4 text-2xl md:text-4xl font-bold">{new Date(launchData.net).toLocaleString()}</p> 
                         
                         <p>{launchData.pad.name}</p>
-                        <p className='mb-4'>{launchData.pad.location.name}</p>
+                        <p className=''>{launchData.pad.location.name}</p>
 
                         
                     </div>

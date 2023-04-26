@@ -33,13 +33,6 @@ export default function Comment({ data, refreshComments }) {
             .then(() => refreshComments())
     }
 
-    const options = { 
-        weekday: 'long', 
-        year: 'numeric',
-        month: 'long', 
-        day: 'numeric' 
-    }
-
 
     //  Default JSX of each comment
     let commentElement = <div className="p-4 mb-4 bg-gray-500 rounded-lg">
