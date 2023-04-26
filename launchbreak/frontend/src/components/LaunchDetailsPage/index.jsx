@@ -31,7 +31,7 @@ console.log(launchData)
                             <img src={launchData.image} className="w-full lg:h-auto"/>
                         </div>
                         <div className="lg:mt-4 mt-0 flex-1">
-                            <div className="flex flex-col justify-center">
+                            <div className="flex flex-col justify-center px-4">
                                 <h1 className="text-lg font-bold mb-2">{launchData.name}</h1>
 
                                 <p className='mb-3'>{launchData.launch_service_provider.name}</p>

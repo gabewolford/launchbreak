@@ -17,13 +17,13 @@ export default function AstronautCard({ astronautData, setDetailPageId }) {
                     {astronautData.status.name === 'Retired' && <span className="text-xs bg-red-500 bg-opacity-75  m-1.5 px-2 absolute top-0 left-0 p-0.5">{astronautData.status.name}</span>}
                 </div>
                 <div className="flex-1 flex flex-col">
-                    <div className="bg-gray-600 flex-1 h-1/3">
-                    <h1 className="text-xl lg:text-2xl font-bold p-3">{astronautData.name}</h1>
-                    <p className="pl-3">Nationality: {astronautData.nationality}</p>
-                    <p className="pl-3">Born: {new Date(astronautData.date_of_birth).toDateString()}</p>
-                    <p className="pl-3">Age: {astronautData.age}</p>
+                    <div className="bg-gray-600 flex-1 p-3 h-1/2">
+                        <h1 className="text-xl lg:text-2xl font-bold pb-2">{astronautData.name}</h1>
+                        <p className="">Nationality: {astronautData.nationality}</p>
+                        <p className="">Born: {new Date(astronautData.date_of_birth).toDateString()}</p>
+                        <p className="">Age: {astronautData.age}</p>
                     </div>
-                    <div className="flex-1 bg-gray-400 relative p-3 h-2/3">
+                    <div className="flex-1 bg-gray-400 relative p-3 h-1/2">
                         
                         <p className="mb-2">Flights: {astronautData.flights_count}</p>
                         <p className="text-sm">First Flight: {new Date(astronautData.first_flight).toDateString()}</p>
