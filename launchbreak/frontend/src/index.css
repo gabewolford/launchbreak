@@ -30,7 +30,12 @@ body {
   transition: .4s ease-in-out;
 }
 
-#launch-card:hover {
+#astronaut-card {
+  background-color: rgb(79, 79, 79);
+  transition: .4s ease-in-out;
+}
+
+#astronaut-card:hover, #launch-card:hover {
   box-shadow: 0px 0px 7px rgb(203, 203, 203);
   scale: 1.02;
 }

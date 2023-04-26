@@ -1,12 +1,12 @@
 export default function LaunchesPage({ upcomingLaunches }) {
     return (
         <>
-        <div className="lg:mx-12">
-            <h1 className="m-6 text-3xl font-bold text-white">Upcoming Launches</h1>
-                <div className="grid grid-cols-1">
-                    {upcomingLaunches}
-                </div>
-        </div>
+            <div className="lg:mx-12">
+                <h1 className="m-6 text-3xl font-bold text-white">Upcoming Launches</h1>
+                    <div className="grid grid-cols-1">
+                        {upcomingLaunches}
+                    </div>
+            </div>
         </>
     )
 }
