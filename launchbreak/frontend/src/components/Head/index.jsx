@@ -1,5 +1,5 @@
 import { Navbar, Dropdown, Avatar } from "flowbite-react"
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 
 export default function Head() {
@@ -8,11 +8,11 @@ export default function Head() {
         fluid={true}
         id="nav"
         >
-        <NavLink to="/">
+        <Link to="/">
             <span className="self-center ml-2 text-2xl font-bold text-orange-400">
             Launchbreak
             </span>
-        </NavLink>
+        </Link>
 
         <div className="flex md:order-2 mb-1">
             <Dropdown
@@ -51,31 +51,31 @@ export default function Head() {
             <Navbar.Toggle />
         </div>
         <Navbar.Collapse className="mx-4">
-            <Navbar.Link 
+            <Link 
                 className="text-white hover:text-orange-400"
-                href="/launches">
+                to="/launches">
                 Launches
-            </Navbar.Link>
-            <Navbar.Link 
+            </Link>
+            <Link 
                 className="text-white hover:text-orange-400"
-                href="/news">
+                to="/news">
                 News
-            </Navbar.Link>
-            <Navbar.Link 
+            </Link>
+            <Link 
                 className="text-white hover:text-orange-400"
-                href="/agencies">
+                to="/agencies">
                 Agencies
-            </Navbar.Link>
-            <Navbar.Link 
+            </Link>
+            <Link 
                 className="text-white hover:text-orange-400"
-                href="/spacecraft">
+                to="/spacecraft">
                 Spacecraft
-            </Navbar.Link>
-            <Navbar.Link 
+            </Link>
+            <Link 
                 className="text-white hover:text-orange-400"
-                href="/astronauts">
+                to="/astronauts">
                 Astronauts
-            </Navbar.Link>
+            </Link>
         </Navbar.Collapse>
         </Navbar>
     )
