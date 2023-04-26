@@ -3,7 +3,6 @@ import { getData } from '../../../utils/api'
 import CommentSection from '../CommentSection'
 
 export default function LaunchDetailsPage({ launchData, updateDetails, detailPageId }) {
-    
 
     useEffect(() => {
         getData(`https://lldev.thespacedevs.com/2.2.0/launch/upcoming/${detailPageId}`)
@@ -19,7 +18,7 @@ export default function LaunchDetailsPage({ launchData, updateDetails, detailPag
                     </div>
                 </>
 
-    if (launchData) {
+    if (launchData && launchData.id === detailPageId) {
         
         page = <>
                     <div className="lg:mx-12">
@@ -132,7 +131,7 @@ export default function LaunchDetailsPage({ launchData, updateDetails, detailPag
 
                     <div className='mx-12'>
                         <h1 className='text-2xl font-bold m-5'>Comments</h1>
-                        <CommentSection launchId={launchData.id}/>
+                        <CommentSection launchId={detailPageId}/>
                     </div>
                 </>
     }
