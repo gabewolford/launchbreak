@@ -9,7 +9,7 @@ export default function AstronautDetailsPage({ astronautData, updateDetails, det
     }, [])
     
     let page = <p>Loading astronaut data...</p>
-    if (astronautData) {
+    if (astronautData && astronautData.id === detailPageId) {
         page = <div className="flex">
                     <div className="flex-1 flex">
                         <img src={astronautData.profile_image} className="w-full" />
