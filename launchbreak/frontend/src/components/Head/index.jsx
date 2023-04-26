@@ -9,7 +9,7 @@ export default function Head() {
         id="nav"
         >
         <NavLink to="/">
-            <span className="self-center text-3xl font-bold text-white">
+            <span className="self-center text-2xl font-bold text-orange-400">
             Launchbreak
             </span>
         </NavLink>

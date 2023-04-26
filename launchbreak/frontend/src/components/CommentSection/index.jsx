@@ -8,7 +8,8 @@ export default function CommentSection({ launchId }) {
     const [showCreateForm, setShowCreateForm] = useState(false)
     const [createFormData, setCreateFormData] = useState({
         name: '',
-        commentText: ''
+        commentText: '',
+        updatedAt: ''
     })
 
     // Query the database for all comments that pertain to this launch
@@ -55,7 +56,7 @@ export default function CommentSection({ launchId }) {
 
 
     // conditionally render comments
-    let commentElements = [<p key='0'>No comments yet. Be the first to comment!</p>]
+    let commentElements = [<p className="text-lg" key='0'>No comments yet.</p>]
     if (comments.length > 0) {
         commentElements = comments.map(comment => {
             return <Comment
@@ -77,7 +78,7 @@ export default function CommentSection({ launchId }) {
                 <div className="">
                     <button
                         onClick={toggleCreateForm}
-                        className="bg-blue-900 hover:bg-blue-800 rounded-md text-white text-sm font-bold py-2 px-4 mb-2 cursor-pointer relative right-0"
+                        className="bg-blue-900 hover:bg-blue-800 rounded-md text-white text-md font-bold py-2 px-4 mb-2 cursor-pointer relative right-0"
                     >
                         {btnText}
                     </button>

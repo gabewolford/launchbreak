@@ -7,7 +7,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
   color: white;
   font-family: 'News Cycle', sans-serif;
 }
@@ -23,6 +22,22 @@ body {
   border: none;
   box-shadow: none;
   border-radius: 0;
+}
+
+#launch-card {
+  background-color: rgb(79, 79, 79);
+  border-radius: 10px;
+  transition: .4s ease-in-out;
+}
+
+#launch-card:hover {
+  box-shadow: 0px 0px 7px rgb(203, 203, 203);
+  scale: 1.02;
+}
+
+#launch-details {
+  background-color: rgb(79, 79, 79);
+  border-radius: 10px;
 }
 
 #foot {

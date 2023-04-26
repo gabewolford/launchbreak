@@ -33,9 +33,17 @@ export default function Comment({ data, refreshComments }) {
             .then(() => refreshComments())
     }
 
+    const options = { 
+        weekday: 'long', 
+        year: 'numeric',
+        month: 'long', 
+        day: 'numeric' 
+    }
+
 
     //  Default JSX of each comment
     let commentElement = <div className="p-4 mb-4 bg-gray-500 rounded-lg">
+                            <p className="text-gray-300 text-xs mb-2">{new Date(data.updatedAt).toLocaleString()}</p>
                             <p className="font-bold bg-gray-500">{data.name}</p>
                             <p className="my-2 bg-gray-500">{data.commentText}</p>
                             <div className="flex justify-end bg-gray-500">

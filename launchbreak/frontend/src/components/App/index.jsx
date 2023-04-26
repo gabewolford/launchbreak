@@ -70,7 +70,7 @@ function App() {
   }, [])
 
 
-    let upcomingLaunches = <p>Loading upcoming launches...</p>
+    let upcomingLaunches = <p className="m-6">Loading upcoming launches...</p>
     if (launches.length > 0) {
         upcomingLaunches = launches
           .map((launch, i) => <LaunchCard key={i} launchData={launch} setDetailPageId={setDetailPageId}/>)
