@@ -34,39 +34,23 @@ function App() {
     getData('https://lldev.thespacedevs.com/2.2.0/launch/upcoming/')
       .then(res => {
         setLaunches(res.results)
-      })
-  }, [])
-
-
-  useEffect(() => {
+    })
     getData('https://api.spaceflightnewsapi.net/v4/articles/')
       .then(res => {
         setNews(res.results)
-      })
-  }, [])
-
-
-  useEffect(() => {
+    })
     getData('https://lldev.thespacedevs.com/2.2.0/agencies/')
       .then(res => {
-          setAgencies(res.results)
-      })
-  }, [])
-
-
-  useEffect(() => {
+        setAgencies(res.results)
+    })
     getData('https://lldev.thespacedevs.com/2.2.0/spacecraft/')
       .then(res => {
-          setSpacecraft(res.results)
-      })
-  }, [])
-
-
-  useEffect(() => {
+        setSpacecraft(res.results)
+    })
     getData('https://lldev.thespacedevs.com/2.2.0/astronaut/')
       .then(res => {
         setAstronauts(res.results)
-      })
+    })
   }, [])
 
 
