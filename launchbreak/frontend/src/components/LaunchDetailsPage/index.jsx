@@ -17,19 +17,18 @@ export default function LaunchDetailsPage({ launchData, updateDetails, detailPag
                 </>
 
     if (launchData && launchData.id === detailPageId) {
-        
         page = <>
                     <div className="mx-12">
-                        <h1 className="text-3xl mt-6 font-bold">Launch Details</h1>
+                        <h1 className="text-3xl mt-6 mb-12 font-bold">Launch Details</h1>
                     </div>
-                    <div id='launch-details' className='m-6 mx-12 lg:max-w-[75vw] lg:mx-auto max-h-fit flex flex-col lg:flex-row'>
+                    <div id='launch-details' className='mx-12 lg:max-w-[75vw] lg:mx-auto max-h-fit flex flex-col lg:flex-row'>
                         <div className="m-4 lg:w-1/2 lg:mr-4">
                             <img src={launchData.image} className="w-full lg:h-auto"/>
                         </div>
                         <div className="mt-0 mb-4 flex-1">
                             <div className="flex flex-col justify-center px-4 lg:pl-0">
                                 <h1 className="text-2xl lg:mt-4 font-bold mb-2">{launchData.name}</h1>
-                                <em className='mb-3 text-blue-300'>{launchData.mission?.type} mission to {launchData.mission?.orbit.name} ({launchData.mission?.orbit.abbrev}) by {launchData.launch_service_provider.name}</em>
+                                {launchData.mission && <em className='mb-3 text-blue-300'>{launchData.mission.type} mission to {launchData.mission.orbit.name} ({launchData.mission.orbit.abbrev}) by {launchData.launch_service_provider.name}</em>}
                                 <p className="mb-4 text-2xl md:text-4xl font-bold">{new Date(launchData.net).toLocaleString()}</p> 
                                 <p className='mb-4'>{launchData.mission?.description}</p>
                                 <div className='mb-1'>
@@ -58,7 +57,7 @@ export default function LaunchDetailsPage({ launchData, updateDetails, detailPag
                         <div id='launch-details' className='lg:w-1/2'>
                             <div className="px-4 pt-4">
                                 <h2 className="text-xl font-bold mb-1">Rocket Details</h2>
-                                <p className='mb-4 text-sm'>{launchData.rocket.configuration.description}</p>
+                                <p className='mb-4 text-sm'>{launchData.rocket.configuration?.description}</p>
                                 <table className=''>
                                     <div className="border-2 border-solid p-1 border-gray-400">
                                         <th className='text-blue-300 text-lg pl-2 pb-1 text-left'>
@@ -66,47 +65,47 @@ export default function LaunchDetailsPage({ launchData, updateDetails, detailPag
                                         </th>
                                         <tr className='bg-white'>
                                             <td className='italic text-gray-900 pl-2'>Name</td>
-                                            <td className='pl-5 pr-2 text-gray-900'>{launchData.rocket.configuration.full_name}</td>
+                                            <td className='pl-5 pr-2 text-gray-900'>{launchData.rocket.configuration?.full_name}</td>
                                         </tr>
                                         <tr className=''>
                                             <td className='italic pl-2'>Family</td>
-                                            <td className='pl-5'>{launchData.rocket.configuration.family}</td>
+                                            <td className='pl-5'>{launchData.rocket.configuration?.family}</td>
                                         </tr>
                                         <tr className='bg-white'>
                                             <td className='italic text-gray-900 pl-2'>Variant</td>
-                                            <td className='pl-5 text-gray-900'>{launchData.rocket.configuration.variant}</td>
+                                            <td className='pl-5 text-gray-900'>{launchData.rocket.configuration?.variant}</td>
                                         </tr>
                                         <tr className=''>
                                             <td className='italic pl-2'>Stages</td>
-                                            <td className='pl-5'>{launchData.rocket.configuration.max_stage}</td>
+                                            <td className='pl-5'>{launchData.rocket.configuration?.max_stage}</td>
                                         </tr>
                                         <tr className='bg-white'>
                                             <td className='italic text-gray-900 pl-2'>Reusable</td>
-                                            <td className='pl-5 text-gray-900'>{launchData.rocket.configuration.reusable == true && 'Yes'}</td>
+                                            <td className='pl-5 text-gray-900'>{launchData.rocket.configuration?.reusable == true && 'Yes'}</td>
                                         </tr>
                                         <tr className=''>
                                             <td className='italic pl-2'>Length (m)</td>
-                                            <td className='pl-5'>{launchData.rocket.configuration.length}</td>
+                                            <td className='pl-5'>{launchData.rocket.configuration?.length}</td>
                                         </tr>
                                         <tr className='bg-white'>
                                             <td className='italic text-gray-900 pl-2'>Diameter (m)</td>
-                                            <td className='pl-5 text-gray-900'>{launchData.rocket.configuration.diameter}</td>
+                                            <td className='pl-5 text-gray-900'>{launchData.rocket.configuration?.diameter}</td>
                                         </tr>
                                         <tr className=''>
                                             <td className='italic pl-2'>Launch Mass (T)</td>
-                                            <td className='pl-5'>{launchData.rocket.configuration.launch_mass.toLocaleString()}</td>
+                                            <td className='pl-5'>{launchData.rocket.configuration.launch_mass?.toLocaleString()}</td>
                                         </tr>
                                         <tr className='bg-white'>
                                             <td className='italic text-gray-900 pl-2'>LEO Capcity (kg)</td>
-                                            <td className='pl-5 text-gray-900'>{launchData.rocket.configuration.leo_capacity.toLocaleString()}</td>
+                                            <td className='pl-5 text-gray-900'>{launchData.rocket.configuration.leo_capacity?.toLocaleString()}</td>
                                         </tr>
                                         <tr className=''>
                                             <td className='italic pl-2'>GTO Capcity (kg)</td>
-                                            <td className='pl-5'>{launchData.rocket.configuration.gto_capacity.toLocaleString()}</td>
+                                            <td className='pl-5'>{launchData.rocket.configuration.gto_capacity?.toLocaleString()}</td>
                                         </tr>
                                         <tr className='bg-white'>
                                             <td className='italic text-gray-900 pl-2'>Liftoff Thrust (kN)</td>
-                                            <td className='pl-5 text-gray-900'>{launchData.rocket.configuration.to_thrust.toLocaleString()}</td>
+                                            <td className='pl-5 text-gray-900'>{launchData.rocket.configuration?.to_thrust?.toLocaleString()}</td>
                                         </tr>
                                     </div>
                                 </table>

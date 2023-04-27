@@ -12,7 +12,11 @@ export default function AstronautDetailsPage({ astronautData, updateDetails, det
     let page = <LoadingSpinner/>
 
     if (astronautData && astronautData.id === detailPageId) {
-        page = <div className="flex mx-12 mt-12">
+        page = <>
+        <div className="mx-12">
+                    <h1 className="text-3xl my-6 font-bold">Astronaut Details</h1>
+                </div>
+                <div className="flex mx-12 mt-12">
                     <div className="flex-1 flex">
                         <img src={astronautData.profile_image} className="w-full" />
                     </div>
@@ -35,7 +39,9 @@ export default function AstronautDetailsPage({ astronautData, updateDetails, det
                         </div>
                     </div>
                 </div>
+            </>
     }
+        
 
 
     return (

@@ -50,7 +50,7 @@ export default function Head() {
             </Dropdown>
             <Navbar.Toggle />
         </div>
-        <Navbar.Collapse className="mx-4">
+        <Navbar.Collapse id="mobile-nav">
             <Link 
                 className="text-white hover:text-orange-400"
                 to="/launches">

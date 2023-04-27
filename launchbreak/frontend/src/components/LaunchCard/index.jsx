@@ -9,7 +9,7 @@ export default function LaunchCard({ launchData, setDetailPageId }) {
                 to={`/launch/${launchData.slug}`}
                 onClick={() => setDetailPageId(launchData.id)}
             >
-            <div id='launch-card' className='m-6 p-4 flex flex-col lg:flex-row'>
+            <div id='launch-card' className='mb-6 p-4 flex flex-col lg:flex-row'>
                 <div className="lg:w-1/2 lg:mr-4">
                     <img src={launchData.image} className="max-h-fill w-full lg:h-auto"/>
                 </div>
