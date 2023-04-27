@@ -6,11 +6,9 @@ import LoadingSpinner from '../LoadingSpinner'
 export default function LaunchDetailsPage({ launchData, updateDetails, detailPageId }) {
 
     useEffect(() => {
-        getData(`https://lldev.thespacedevs.com/2.2.0/launch/upcoming/${detailPageId}`)
+        getData(`https://ll.thespacedevs.com/2.2.0/launch/upcoming/${detailPageId}`)
             .then(res => updateDetails(res))
     }, [])
-
-    
 
     let page = <>
                 <LoadingSpinner/>
@@ -57,7 +55,7 @@ export default function LaunchDetailsPage({ launchData, updateDetails, detailPag
                         <div className="h-fit lg:w-1/2">
                             <section id='config-details' className="h-fit flex">
                                 <table className="w-full text-sm text-left mx-4 mb-4">
-                                    <thead className="text-lg">
+                                    <thead className="text-xl">
                                         <tr>
                                             <th scope="col" className="py-3">
                                                 Rocket Details
@@ -128,7 +126,7 @@ export default function LaunchDetailsPage({ launchData, updateDetails, detailPag
                                             </th>
                                             {launchData.rocket.configuration.gto_capacity ? <td className="px-4 py-2 text-black">{launchData.rocket.configuration.gto_capacity.toLocaleString()}</td> : <td className="px-4 py-2 text-black">N/A</td>}
                                         </tr>
-                                        <tr className="border-b bg-gray-100">
+                                        <tr className="bg-white border-b">
                                             <th scope="row" className="px-4 py-2 text-black italic font-bold border-r">
                                                 Liftoff Thrust (kN)
                                             </th>
