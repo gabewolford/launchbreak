@@ -140,18 +140,16 @@ export default function LaunchDetailsPage({ launchData, updateDetails, detailPag
                         </div>
                     </div>
 
-                    
-
                     <hr className='my-12 mx-6'/>
 
-                    <div className='mx-12 max-h-fit flex flex-col lg:flex-row lg:max-w-[75vw] lg:mx-auto'>
-                        <div className="lg:w-1/2">
+                    <div className='mx-12 max-h-fit flex flex-col lg:flex-row lg:max-w-[75vw] lg:mx-auto gap-5'>
+                        <div className="lg:w-2/3">
                             <h1 className='text-2xl font-bold mb-5'>Comments</h1>
                             <CommentSection launchId={detailPageId}/>
                         </div>
 
-                        <figure className='lg:w-1/2 p-8'>
-                            <img src={launchData.mission_patches[0]?.image_url} className="w-full lg:max-h-80"/>
+                        <figure className='lg:w-1/3'>
+                            <img src={launchData.mission_patches[0]?.image_url}/>
                             <figcaption className='text-white text-center'>{launchData.mission_patches[0]?.name}</figcaption>
                         </figure>
 
