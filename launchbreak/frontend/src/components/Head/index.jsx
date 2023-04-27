@@ -37,42 +37,42 @@ export default function Head() {
                 username
                 </span>
             </Dropdown.Header>
-            <Dropdown.Item className="hover:bg-transparent hover:text-orange-400 text-black">
+            <Dropdown.Item className="hover:bg-transparent hover:text-orange-400 text-black hover-underline-animation">
                 Account
             </Dropdown.Item>
-            <Dropdown.Item className="hover:bg-transparent hover:text-orange-400 text-black">
+            <Dropdown.Item className="hover:bg-transparent hover:text-orange-400 text-black hover-underline-animation">
                 Settings
             </Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item className=" hover:bg-transparent hover:text-orange-400 text-black">
+            <Dropdown.Item className=" hover:bg-transparent hover:text-orange-400 text-black hover-underline-animation">
                 Sign out
             </Dropdown.Item>
             </Dropdown>
             <Navbar.Toggle />
         </div>
-        <Navbar.Collapse id="mobile-nav">
+        <Navbar.Collapse id="mobile-nav" className="xs:ml-4">
             <Link 
-                className="text-white hover:text-orange-400"
+                className="text-white bg-gray-500 bg-opacity-75 md:bg-transparent px-4 py-2 md:p-0 md:py-1 rounded-t-lg hover:text-orange-400 hover-underline-animation"
                 to="/launches">
                 Launches
             </Link>
             <Link 
-                className="text-white hover:text-orange-400"
+                className="text-white bg-gray-500 bg-opacity-75 md:bg-transparent px-4 py-2 md:p-0 md:py-1 hover:text-orange-400 hover-underline-animation"
                 to="/news">
                 News
             </Link>
             <Link 
-                className="text-white hover:text-orange-400"
+                className="text-white bg-gray-500 bg-opacity-75 md:bg-transparent px-4 py-2 md:p-0 md:py-1 hover:text-orange-400 hover-underline-animation"
                 to="/agencies">
                 Agencies
             </Link>
             <Link 
-                className="text-white hover:text-orange-400"
+                className="text-white bg-gray-500 bg-opacity-75 md:bg-transparent px-4 py-2 md:p-0 md:py-1 hover:text-orange-400 hover-underline-animation"
                 to="/spacecraft">
                 Spacecraft
             </Link>
             <Link 
-                className="text-white hover:text-orange-400"
+                className="text-white bg-gray-500 bg-opacity-75 md:bg-transparent px-4 py-2 md:p-0 md:py-1 rounded-b-lg hover:text-orange-400 hover-underline-animation"
                 to="/astronauts">
                 Astronauts
             </Link>
