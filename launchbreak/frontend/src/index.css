@@ -64,10 +64,6 @@ body {
   transition: 1.5s ease-in;
 }
 
-#astronaut-card-in-space-nohover, #astronaut-card-nohover {
-  background-color: rgb(79, 79, 79);
-}
-
 #astronaut-card-in-space:hover {
   box-shadow: 0px 0px 75px rgb(252, 237, 162);
   scale: 1.07;
