@@ -11,7 +11,7 @@ export default function LaunchCard({ launchData, setDetailPageId }) {
             >
             <div id='launch-card' className='mb-6 p-4 flex flex-col lg:flex-row'>
                 <div className="lg:w-1/2 lg:mr-4">
-                    <img src={launchData.image} className="max-h-fill w-full lg:h-auto"/>
+                    <img src={launchData.image} className="max-h-fill w-full lg:h-auto border-4 border-blue-300"/>
                 </div>
                 <div className="flex-1 mt-4 lg:mt-0">
                     <div className="flex flex-col justify-center">

@@ -21,7 +21,7 @@ export default function LaunchDetailsPage({ launchData, updateDetails, detailPag
                     </div>
                     <div id='launch-details' className='mx-12 lg:max-w-[75vw] lg:mx-auto max-h-fit flex flex-col lg:flex-row'>
                         <div className="m-4 lg:w-1/2 lg:mr-4">
-                            <img src={launchData.image} className="w-full lg:h-auto"/>
+                            <img src={launchData.image} className="w-full lg:h-auto border-4 border-blue-300"/>
                         </div>
                         <div className="mt-0 mb-4 flex-1">
                             <div className="flex flex-col justify-center px-4 lg:pl-0">
@@ -44,12 +44,13 @@ export default function LaunchDetailsPage({ launchData, updateDetails, detailPag
                                 <p className='text-blue-300'>{launchData.pad.name}</p>
                                 <p className='text-blue-300'>{launchData.pad.location.name}</p>
                             </div>
-                            
-                            <iframe 
-                                src ={`https://maps.google.com/maps?q=${launchData.pad.latitude},${launchData.pad.longitude}&hl=en&z=14&output=embed`}
-                                className="min-h-[200px] w-full p-4"
-                                >
-                            </iframe>
+                            <div className='p-4'>
+                                <iframe 
+                                    src ={`https://maps.google.com/maps?q=${launchData.pad.latitude},${launchData.pad.longitude}&hl=en&z=14&output=embed`}
+                                    className="min-h-[200px] w-full border-4 border-blue-300"
+                                    >
+                                </iframe>
+                            </div>
                         </div>
 
                         <div className="h-fit lg:w-1/2">
