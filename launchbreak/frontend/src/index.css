@@ -54,12 +54,23 @@ body {
   transition: .4s ease-in-out;
 }
 
-#astronaut-card {
+#astronaut-card, #news-card {
   background-color: rgb(79, 79, 79);
   transition: .4s ease-in-out;
 }
 
-#astronaut-card:hover, #launch-card:hover {
+#astronaut-card-in-space {
+  background-color: rgb(79, 79, 79);
+  transition: 1.5s ease;
+}
+
+#astronaut-card-in-space:hover {
+  box-shadow: 0px 0px 75px rgb(252, 237, 162);
+  scale: 1.02;
+  transform: rotate(1turn);
+}
+
+#astronaut-card:hover, #launch-card:hover, #news-card:hover {
   box-shadow: 0px 0px 7px rgb(203, 203, 203);
   scale: 1.02;
 }
@@ -69,16 +80,11 @@ body {
   border-radius: 5px;
 }
 
-#config-details {
-  background-color: rgb(79, 79, 79);
-  border-radius: 5px;
-}
-
-#foot {
-  background-color: rgb(45, 45, 45);
+/* #foot {
+  background-color: transparent;
   box-shadow: none;
   position: absolute;
   bottom: 0;
   border-radius: 0;
-}
+} */
 

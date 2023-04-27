@@ -8,10 +8,6 @@ export default function AstronautsPage({ astronautList }) {
                     {astronautList}
                 </div>
         </div>
-            <div>
-                
-            </div>
-            
         </>
     )
 }

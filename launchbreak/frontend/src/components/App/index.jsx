@@ -47,7 +47,7 @@ function App() {
       .then(res => {
         setSpacecraft(res.results)
     })
-    getData('https://lldev.thespacedevs.com/2.2.0/astronaut/')
+    getData('https://lldev.thespacedevs.com/2.2.0/astronaut/?limit=100')
       .then(res => {
         setAstronauts(res.results)
     })
