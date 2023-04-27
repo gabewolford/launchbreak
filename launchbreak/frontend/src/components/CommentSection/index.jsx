@@ -74,7 +74,7 @@ export default function CommentSection({ launchId }) {
     }
 
     return (
-        <div className="mx-6">
+        <div className="mb-6">
                 <div className="">
                     <button
                         onClick={toggleCreateForm}
