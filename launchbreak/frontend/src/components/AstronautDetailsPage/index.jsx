@@ -1,18 +1,21 @@
 import { useEffect } from 'react'
+import { useParams } from 'react-router-dom';
 import { getData } from '../../../utils/api'
 import { findFlagUrlByNationality } from "country-flags-svg";
 import LoadingSpinner from '../LoadingSpinner'
 
 
-export default function AstronautDetailsPage({ astronautData, updateDetails, detailPageId }) {
+export default function AstronautDetailsPage({ astronautData, setDetailPage }) {
+    const { id } = useParams()
+
     useEffect(() => {
-        getData(`https://lldev.thespacedevs.com/2.2.0/astronaut/${detailPageId}`)
-            .then(res => updateDetails(res))
+        getData(`https://lldev.thespacedevs.com/2.2.0/astronaut/${id}`)
+            .then(res => setDetailPage(res))
     }, [])
 
     let page = <LoadingSpinner/>
 
-    if (astronautData && astronautData.id === detailPageId) {
+    if (astronautData) {
         const inSpaceBadge = <span className="px-2 py-1 text-md text-xs lg:text-xl lg:font-bold bg-orange-400 rounded m-2 absolute top-0">In Space</span>
     
         if (astronautData.in_space === true) {

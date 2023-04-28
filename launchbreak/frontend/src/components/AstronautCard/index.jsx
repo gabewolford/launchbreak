@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { findFlagUrlByNationality } from "country-flags-svg"
 
 
-export default function AstronautCard({ astronautData, setDetailPageId }) {
+export default function AstronautCard({ astronautData, setDetailPage }) {
     
     let card = <>
                 <div id="astronaut-card" className="flex rounded-lg bg-gray-600">
@@ -65,9 +65,9 @@ export default function AstronautCard({ astronautData, setDetailPageId }) {
     return (
         <Link 
             to={`/astronaut/${astronautData.id}`}
-            onClick={() => setDetailPageId(astronautData.id)}
+            onClick={() => setDetailPage(astronautData)}
         >
-       {card}
+        {card}
         </Link>
     )
 }
