@@ -31,7 +31,7 @@ export default function LaunchDetailsPage({ launchData, updateDetails, detailPag
                     <div className="mx-12">
                         <h1 className="text-3xl mt-6 mb-12 font-bold">Launch Details</h1>
                     </div>
-                    <div id='launch-details' className='mx-12 lg:max-w-[75vw] lg:mx-auto max-h-fit flex flex-col lg:flex-row'>
+                    <div className='mx-12 lg:max-w-[75vw] lg:mx-auto max-h-fit flex flex-col lg:flex-row bg-gray-600 rounded-lg'>
                         <div className="m-4 lg:w-1/2 lg:mr-4">
                             <img src={launchData.image} className="w-full lg:h-auto border-4 border-blue-300"/>
                         </div>
@@ -50,7 +50,7 @@ export default function LaunchDetailsPage({ launchData, updateDetails, detailPag
                     </div>
                     
                     <div className='m-6 max-h-fit flex flex-col lg:flex-row gap-5 mx-12 lg:max-w-[75vw] lg:mx-auto'>
-                        <div id='launch-details' className='h-fit lg:w-1/2'>
+                        <div className='bg-gray-600 rounded-lg h-fit lg:w-1/2'>
                             <div className="px-4 pt-4">
                                 <h2 className="text-xl font-bold mb-2">Launching From</h2>
                                 <p className='text-blue-300'>{launchData.pad.name}</p>
@@ -66,7 +66,7 @@ export default function LaunchDetailsPage({ launchData, updateDetails, detailPag
                         </div>
 
                         <div className="h-fit lg:w-1/2">
-                            <section id='config-details' className="h-fit flex">
+                            <section className="bg-gray-600 rounded-lg h-fit flex">
                                 <table className="w-full text-sm text-left mx-4 mb-4">
                                     <thead className="text-xl">
                                         <tr>

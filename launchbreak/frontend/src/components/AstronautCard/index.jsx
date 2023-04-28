@@ -5,7 +5,7 @@ import { findFlagUrlByNationality } from "country-flags-svg"
 export default function AstronautCard({ astronautData, setDetailPageId }) {
     
     let card = <>
-                <div id="astronaut-card" className="flex rounded-lg">
+                <div id="astronaut-card" className="flex rounded-lg bg-gray-600">
                         <div className="flex-1 flex m-4">
                             <img src={astronautData.profile_image} className="w-full border-2 border-blue-300" />
                         </div>
@@ -34,7 +34,7 @@ export default function AstronautCard({ astronautData, setDetailPageId }) {
 
     if (astronautData.in_space === true) {
         const inSpaceBadge = <span className="px-2 py-1 text-md text-xs bg-orange-400 rounded m-2 absolute top-0">In Space</span>
-        card = <div id="astronaut-card-in-space" className="flex rounded-lg border-4 border-orange-400">
+        card = <div id="astronaut-card-in-space" className="flex rounded-lg bg-gray-600 border-4 border-orange-400">
                     <div className="flex-1 flex m-4 relative">
                         <img src={astronautData.profile_image} className="w-full border-2 border-blue-300" />
                         {inSpaceBadge}
