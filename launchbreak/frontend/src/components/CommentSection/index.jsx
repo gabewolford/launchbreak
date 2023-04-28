@@ -9,7 +9,6 @@ export default function CommentSection({ launchId }) {
     const [createFormData, setCreateFormData] = useState({
         name: '',
         commentText: '',
-        updatedAt: ''
     })
 
     // Query the database for all comments that pertain to this launch

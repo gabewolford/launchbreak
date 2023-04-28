@@ -8,10 +8,8 @@ export default function LaunchDetailsPage({ launchData, setDetailPage }) {
     const { id } = useParams()
     
     useEffect(() => {
-        if (!launchData) {
         getData(`https://lldev.thespacedevs.com/2.2.0/launch/upcoming/${id}`)
             .then(res => setDetailPage(res))  
-        }
     }, [])
  
     let page = <>
