@@ -39,8 +39,8 @@ export default function AuthFormPage() {
             const { token } = await signUp(formData)
             localStorage.setItem('userToken', token)
         }
-        // redirect to the launches page after signing/logging in
-        navigate('/launches')
+        // redirect to the home page after signing/logging in
+        navigate('/')
     }
 
     return (
