@@ -22,7 +22,7 @@ export default function AstronautDetailsPage({ astronautData, updateDetails, det
                             <h1 className="text-3xl mt-6 mb-12 font-bold">Astronaut Details</h1>
                     </div>
                     <div className="flex rounded-lg bg-gray-600 border-4 border-orange-400 mx-12 lg:max-w-[70vw] lg:mx-auto">
-                        <div className="flex-1 flex m-4 relative">
+                        <div className="flex-1 m-4 relative">
                             <img src={astronautData.profile_image} className="w-full border-2 border-blue-300" />
                             {inSpaceBadge}
                         </div>
@@ -38,23 +38,23 @@ export default function AstronautDetailsPage({ astronautData, updateDetails, det
                                     {astronautData.status.name === 'Active' && <p className="text-xs max-w-fit font-bold bg-green-500 bg-opacity-75 rounded px-3 py-1.5">{astronautData.status.name}</p>}
                                     {astronautData.status.name === 'Retired' && <p className="text-xs max-w-fit font-bold bg-red-500 bg-opacity-75 rounded px-3 py-1.5">{astronautData.status.name}</p>}
                                 </div>
-                                <div className="bg-gray-500 p-1 mb-2 w-fit rounded">
-                                    <p className="text-md md:text-sm"><em>Affiliation:&nbsp;&nbsp;</em>{astronautData.agency.abbrev}</p>
+                                <div className="bg-gray-500 p-2 mb-2 w-fit rounded">
+                                    <p className="text-md md:text-sm"><em>Affiliation:&nbsp;&nbsp;</em>{astronautData.agency.name}</p>
                                 </div>
-                                <div className="bg-gray-500 p-1 mb-2 w-fit rounded">
+                                <div className="bg-gray-500 p-2 mb-2 w-fit rounded">
                                     <p className="text-md md:text-sm"><em>Affiliation Type:&nbsp;&nbsp;</em>{astronautData.type.name}</p>
                                 </div>
-                                <div className="bg-gray-500 p-1 mb-2 w-fit rounded">    
+                                <div className="bg-gray-500 p-2 mb-2 w-fit rounded">    
                                     <p className="text-md md:text-sm"><em>Age:&nbsp;&nbsp;</em>{astronautData.age}</p>
                                 </div>
-                                <div className="bg-gray-500 p-1 mb-2 w-fit rounded">    
+                                <div className="bg-gray-500 p-2 mb-2 w-fit rounded">    
                                     <p className="text-md md:text-sm"><em>Born:&nbsp;&nbsp;</em>{new Date(astronautData.date_of_birth).toLocaleDateString()}</p>
                                 </div>
                                 {astronautData.date_of_death &&
-                                    <div className="bg-gray-500 p-1 mb-2 w-fit rounded">    
+                                    <div className="bg-gray-500 p-2 mb-2 w-fit rounded">    
                                         <p className="text-md md:text-sm"><em>Died:&nbsp;&nbsp;</em>{new Date(astronautData.date_of_death).toLocaleDateString()}</p>
                                     </div>}
-                                <div className="bg-gray-500 p-1 mb-2 w-fit rounded">    
+                                <div className="bg-gray-500 p-2 mb-2 w-fit rounded">    
                                     <p className="text-md md:text-sm"><em>Age:&nbsp;&nbsp;</em>{astronautData.age}</p>
                                 </div>
                                 <div className="hidden lg:block">
@@ -90,7 +90,7 @@ export default function AstronautDetailsPage({ astronautData, updateDetails, det
                         <h1 className="text-3xl mt-6 mb-12 font-bold">Astronaut Details</h1>
                     </div>
                     <div className="flex rounded-lg bg-gray-600 mx-12 lg:max-w-[70vw] lg:mx-auto">
-                        <div className="flex-1 flex m-4 relative">
+                        <div className="flex-1 m-4 relative">
                             <img src={astronautData.profile_image} className="w-full border-2 border-blue-300" />
                         </div>
                         <div className="flex-1 flex flex-col mr-4">
@@ -105,23 +105,23 @@ export default function AstronautDetailsPage({ astronautData, updateDetails, det
                                     {astronautData.status.name === 'Active' && <p className="text-xs max-w-fit font-bold bg-green-500 bg-opacity-75 rounded px-3 py-1.5">{astronautData.status.name}</p>}
                                     {astronautData.status.name === 'Retired' && <p className="text-xs max-w-fit font-bold bg-red-500 bg-opacity-75 rounded px-3 py-1.5">{astronautData.status.name}</p>}
                                 </div>
-                                <div className="bg-gray-500 p-1 mb-2 w-fit rounded">
-                                    <p className="text-md md:text-sm"><em>Affiliation:&nbsp;&nbsp;</em>{astronautData.agency.abbrev}</p>
+                                <div className="bg-gray-500 p-2 mb-2 w-fit rounded">
+                                    <p className="text-md md:text-sm"><em>Affiliation:&nbsp;&nbsp;</em>{astronautData.agency.name}</p>
                                 </div>
-                                <div className="bg-gray-500 p-1 mb-2 w-fit rounded">
+                                <div className="bg-gray-500 p-2 mb-2 w-fit rounded">
                                     <p className="text-md md:text-sm"><em>Affiliation Type:&nbsp;&nbsp;</em>{astronautData.type.name}</p>
                                 </div>
-                                <div className="bg-gray-500 p-1 mb-2 w-fit rounded">    
+                                <div className="bg-gray-500 p-2 mb-2 w-fit rounded">    
                                     <p className="text-md md:text-sm"><em>Age:&nbsp;&nbsp;</em>{astronautData.age}</p>
                                 </div>
-                                <div className="bg-gray-500 p-1 mb-2 w-fit rounded">    
+                                <div className="bg-gray-500 p-2 mb-2 w-fit rounded">    
                                     <p className="text-md md:text-sm"><em>Born:&nbsp;&nbsp;</em>{new Date(astronautData.date_of_birth).toLocaleDateString()}</p>
                                 </div>
                                 {astronautData.date_of_death &&
-                                    <div className="bg-gray-500 p-1 mb-2 w-fit rounded">    
+                                    <div className="bg-gray-500 p-2 mb-2 w-fit rounded">    
                                         <p className="text-md md:text-sm"><em>Died:&nbsp;&nbsp;</em>{new Date(astronautData.date_of_death).toLocaleDateString()}</p>
                                     </div>}
-                                <div className="bg-gray-500 p-1 mb-2 w-fit rounded">    
+                                <div className="bg-gray-500 p-2 mb-2 w-fit rounded">    
                                     <p className="text-md md:text-sm"><em>Age:&nbsp;&nbsp;</em>{astronautData.age}</p>
                                 </div>
                                 <div className="hidden lg:block">
