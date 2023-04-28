@@ -1,32 +1,36 @@
 import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import { getData } from '../../../utils/api'
 import CommentSection from '../CommentSection'
 import LoadingSpinner from '../LoadingSpinner'
 
-export default function LaunchDetailsPage({ launchData, updateDetails, detailPageId }) {
-
+export default function LaunchDetailsPage({ launchData, setDetailPage }) {
+    const { id } = useParams()
+    
     useEffect(() => {
-        getData(`https://lldev.thespacedevs.com/2.2.0/launch/upcoming/${detailPageId}`)
-            .then(res => updateDetails(res))
-
-        // setTimeout(() => {
-        //     console.log('1 second delay')
-        // }, 1000)
-        
-        // if (launchData) {
-        //     console.log(launchData)
-        //     localStorage.setItem('launch', JSON.stringify(launchData))
-        // } else {
-        //     updateDetails(JSON.parse(localStorage.getItem('launch')))
-        // }
+        if (!launchData) {
+        getData(`https://lldev.thespacedevs.com/2.2.0/launch/upcoming/${id}`)
+            .then(res => setDetailPage(res))  
+        }
     }, [])
+    // will run on initial render
+
+    // useEffect(() => {
+    //     if (launchData) {
+    //         console.log(launchData)
+    //         localStorage.setItem('launch', JSON.stringify(launchData))
+    //     } else {
+    //         updateDetails(JSON.parse(localStorage.getItem('launch')))
+    //     }
+    // }, )
+    // will run every render
 
  
     let page = <>
                 <LoadingSpinner/>
                 </>
 
-    if (launchData && launchData.id === detailPageId) {
+    if (launchData) {
         page = <>
                     <div className="mx-12">
                         <h1 className="text-3xl mt-6 mb-12 font-bold">Launch Details</h1>
@@ -57,7 +61,7 @@ export default function LaunchDetailsPage({ launchData, updateDetails, detailPag
                                     <p className="text-md lg:text-lg text-blue-300">{launchData.pad.name}</p>
                                     <p className="text-md lg:text-lg">{launchData.pad.location.name}</p>
                                 </div>
-                            <div class="flex bg-gray-500 p-2 mb-4 rounded">
+                            <div className="flex bg-gray-500 p-2 mb-4 rounded">
                                 <div className="flex-auto mr-2 border-2 border-blue-300 rounded text-md md:text-lg px-2 text-center">
                                     <p className='py-1'>Latitude | {launchData.pad.latitude}</p>
                                 </div>
@@ -168,12 +172,12 @@ export default function LaunchDetailsPage({ launchData, updateDetails, detailPag
                     <div className='mx-12 max-h-fit flex flex-col lg:flex-row lg:max-w-[75vw] lg:mx-auto gap-5'>
                         <div className="lg:w-2/3">
                             <h1 className='text-2xl font-bold mb-5'>Comments</h1>
-                            <CommentSection launchId={detailPageId}/>
+                            <CommentSection launchId={launchData.id}/>
                         </div>
-                        <figure className='lg:w-1/3'>
+                        {/* <figure className='lg:w-1/3'>
                             <img src={launchData.mission_patches[0]?.image_url}/>
                             <figcaption className='text-white text-center'>{launchData.mission_patches[0]?.name}</figcaption>
-                        </figure>
+                        </figure> */}
                     </div>
                 </>
     }

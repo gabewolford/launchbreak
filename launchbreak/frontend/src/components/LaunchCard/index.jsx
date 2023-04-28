@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
 
 
-export default function LaunchCard({ launchData, setDetailPageId }) {
+export default function LaunchCard({ launchData, setDetailPage }) {
 
     return (
         <>
             <Link 
-                to={`/launch/${launchData.slug}`}
-                onClick={() => setDetailPageId(launchData.id)}
+                to={`/launch/${launchData.id}`}
+                onClick={() => setDetailPage(launchData)}
             >
             <div id="launch-card" className='mb-6 p-4 flex flex-col lg:flex-row bg-gray-600 rounded-lg'>
                 <div className="lg:w-1/2 lg:mr-4">

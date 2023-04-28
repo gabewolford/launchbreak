@@ -60,7 +60,7 @@ function App() {
     let upcomingLaunches
     if (launches.length > 0) {
         upcomingLaunches = launches
-          .map((launch, i) => <LaunchCard key={i} launchData={launch} setDetailPageId={setDetailPageId}/>)
+          .map((launch, i) => <LaunchCard key={i} launchData={launch} setDetailPage={setDetailPage}/>)
     } 
 
 
@@ -99,7 +99,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/auth/:formType" element={<AuthFormPage />} />
         <Route path="/launches" element={<LaunchesPage upcomingLaunches={upcomingLaunches} setDetailPageId={setDetailPageId}/>} />
-        <Route path="/launch/:slug" element={<LaunchDetailsPage launchData={detailPage} updateDetails={setDetailPage} detailPageId={detailPageId} />}/>
+        <Route path="/launch/:id" element={<LaunchDetailsPage launchData={detailPage} setDetailPage={setDetailPage} detailPageId={detailPageId} />}/>
         <Route path="/news" element={<NewsPage newsList={newsList}/>} />
         <Route path="/agencies" element={<AgenciesPage agencyList={agencyList}/>} />
         <Route path="/agencies/:id" element={<AgencyDetailsPage agencyData={detailPage} updateDetails={setDetailPage} detailPageId={detailPageId}/>} />

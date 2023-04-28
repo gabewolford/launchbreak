@@ -66,7 +66,7 @@ body {
   transform: rotate(1turn);
 }
 
-#astronaut-card:hover, #launch-card:hover, #news-card:hover, #ageny-card:hover, #spacecraft-card:hover {
+#astronaut-card:hover, #launch-card:hover, #news-card:hover, #agency-card:hover, #spacecraft-card:hover {
   box-shadow: 0px 0px 7px rgb(203, 203, 203);
   scale: 1.02;
 }
