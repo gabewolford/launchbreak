@@ -52,11 +52,23 @@ export default function LaunchDetailsPage({ launchData, updateDetails, detailPag
                     <div className='m-6 max-h-fit flex flex-col lg:flex-row gap-5 mx-12 lg:max-w-[75vw] lg:mx-auto'>
                         <div className='bg-gray-600 rounded-lg h-fit lg:w-1/2'>
                             <div className="px-4 pt-4">
-                                <h2 className="text-xl font-bold mb-2">Launching From</h2>
-                                <p className='text-blue-300'>{launchData.pad.name}</p>
-                                <p className='text-blue-300'>{launchData.pad.location.name}</p>
+                                <h2 className="text-xl font-bold mb-4">Launching From</h2>
+                                <div className="bg-gray-500 p-3 mb-4 w-1/2 text-center rounded">
+                                    <p className="text-md lg:text-lg text-blue-300">{launchData.pad.name}</p>
+                                    <p className="text-md lg:text-lg">{launchData.pad.location.name}</p>
+                                </div>
+                            <div class="flex bg-gray-500 p-2 mb-4 rounded">
+                                <div className="flex-auto mr-2 border-2 border-blue-300 rounded text-md md:text-lg px-2 text-center">
+                                    <p className='py-1'>Latitude | {launchData.pad.latitude}</p>
+                                </div>
+                                <div className="flex-auto ml-2 border-2 border-blue-300 rounded text-md md:text-lg px- text-center">
+                                    <p className='py-1'>Longitude | {launchData.pad.longitude}</p>
+                                </div>
                             </div>
-                            <div className='p-4'>
+
+
+                            </div>
+                            <div className='px-4 pb-4'>
                                 <iframe 
                                     src ={`https://maps.google.com/maps?q=${launchData.pad.latitude},${launchData.pad.longitude}&hl=en&z=14&output=embed`}
                                     className="min-h-[200px] w-full border-4 border-blue-300"
@@ -158,12 +170,10 @@ export default function LaunchDetailsPage({ launchData, updateDetails, detailPag
                             <h1 className='text-2xl font-bold mb-5'>Comments</h1>
                             <CommentSection launchId={detailPageId}/>
                         </div>
-
                         <figure className='lg:w-1/3'>
                             <img src={launchData.mission_patches[0]?.image_url}/>
                             <figcaption className='text-white text-center'>{launchData.mission_patches[0]?.name}</figcaption>
                         </figure>
-
                     </div>
                 </>
     }

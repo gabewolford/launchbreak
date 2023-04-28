@@ -52,7 +52,7 @@ body {
   transition: .4s ease-in-out;
 }
 
-#launch-card, #astronaut-card, #news-card {
+#launch-card, #astronaut-card, #news-card, #agency-card {
   transition: .4s ease-in-out;
 }
 

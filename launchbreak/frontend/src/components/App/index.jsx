@@ -10,6 +10,7 @@ import LaunchDetailsPage from "../LaunchDetailsPage"
 import NewsPage from "../NewsPage"
 import NewsCard from "../NewsCard"
 import AgenciesPage from "../AgenciesPage"
+import AgencyDetailsPage from "../AgencyDetailsPage"
 import AgencyCard from "../AgencyCard"
 import AstronautCard from "../AstronautCard"
 import AstronautDetailsPage from "../AstronautDetailsPage"
@@ -32,7 +33,7 @@ function App() {
 
 
   useEffect(() => {
-    getData('https://lldev.thespacedevs.com/2.2.0/launch/upcoming/')
+    getData('https://lldev.thespacedevs.com/2.2.0/launch/upcoming/?limit=100')
       .then(res => {
         setLaunches(res.results)
     })
@@ -40,50 +41,50 @@ function App() {
       .then(res => {
         setNews(res.results)
     })
-    getData('https://lldev.thespacedevs.com/2.2.0/agencies/')
+    getData('https://lldev.thespacedevs.com/2.2.0/agencies/?featured=true')
       .then(res => {
         setAgencies(res.results)
     })
-    getData('https://lldev.thespacedevs.com/2.2.0/spacecraft/')
+    getData('https://lldev.thespacedevs.com/2.2.0/spacecraft/?limit=100')
       .then(res => {
         setSpacecraft(res.results)
     })
-    getData('https://lldev.thespacedevs.com/2.2.0/astronaut/?limit=100')
+    getData('https://lldev.thespacedevs.com/2.2.0/astronaut/?order=id&limit=100')
       .then(res => {
         setAstronauts(res.results)
     })
   }, [])
 
 
-    let upcomingLaunches = <p className="m-6">Loading upcoming launches...</p>
+    let upcomingLaunches
     if (launches.length > 0) {
         upcomingLaunches = launches
           .map((launch, i) => <LaunchCard key={i} launchData={launch} setDetailPageId={setDetailPageId}/>)
     } 
 
 
-    let newsList = <p>Retrieving news data...</p>
+    let newsList
     if (news.length > 0) {
         newsList = news
           .map((news, i) => <NewsCard key={i} newsData={news} />)
     } 
 
 
-    let agencyList = <p className="text-white">Retrieving space agency data...</p>
+    let agencyList
     if (agencies.length > 0) {
         agencyList = agencies
-          .map((agency, i) => <AgencyCard key={i} agencyData={agency} />)
+          .map((agency, i) => <AgencyCard key={i} agencyData={agency} setDetailPageId={setDetailPageId}/>)
     } 
 
 
-    let spacecraftList = <p>Retrieving spacecraft data...</p>
+    let spacecraftList
     if (spacecrafts.length > 0) {
         spacecraftList = spacecrafts
-          .map((spacecraft, i) => <SpacecraftCard key={i} spacecraftData={spacecraft} />)
+          .map((spacecraft, i) => <SpacecraftCard key={i} spacecraftData={spacecraft} setDetailPageId={setDetailPageId}/>)
     } 
 
 
-    let astronautList = <p >Retrieving astronaut data...</p>
+    let astronautList
     if (astronauts.length > 0) {
         astronautList = astronauts
           .map((astronaut, i) => <AstronautCard key={i} astronautData={astronaut} setDetailPageId={setDetailPageId} />)
@@ -100,9 +101,11 @@ function App() {
         <Route path="/launch/:slug" element={<LaunchDetailsPage launchData={detailPage} updateDetails={setDetailPage} detailPageId={detailPageId} />}/>
         <Route path="/news" element={<NewsPage newsList={newsList}/>} />
         <Route path="/agencies" element={<AgenciesPage agencyList={agencyList}/>} />
+        <Route path="/agencies/:id" element={<AgencyDetailsPage agencyData={detailPage} updateDetails={setDetailPage} detailPageId={detailPageId}/>} />
         <Route path="/astronauts" element={<AstronautsPage astronautList={astronautList} setDetailPageId={setDetailPageId}/>} />
         <Route path="/astronaut/:id" element={<AstronautDetailsPage astronautData={detailPage} updateDetails={setDetailPage} detailPageId={detailPageId}/>} />
         <Route path="/spacecraft" element={<SpacecraftPage spacecraftList={spacecraftList}/>} />
+        <Route path="/spacecraft/:id" element={<AgenciesPage spacecraftList={spacecraftList} updateDetails={setDetailPage} detailPageId={detailPageId}/>} />
         <Route path="/account" element={<AccountPage />} />
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
