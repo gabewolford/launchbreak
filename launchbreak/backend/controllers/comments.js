@@ -83,7 +83,8 @@ router.get('/:id', function (req, res) {
 router.put('/:id', authMiddleware, async (req, res) => {
     // Check if the user who sent the update request is the same user who created the comment
     const userComment = await db.Comment.findById(req.params.id)
-    if (userComment.userId === req.user.id) {
+    // console.log(req.user.id === userComment.userId.toString())
+    if (userComment.userId.toString() === req.user.id) {
         // If it is the original author, update the comment
         const newComment = await db.Comment.findByIdAndUpdate(
             req.params.id,
@@ -101,7 +102,7 @@ router.put('/:id', authMiddleware, async (req, res) => {
 router.delete('/:id', authMiddleware, async (req, res) => {
     // Check if the user who sent the delete request is the same user who created the comment
     const userComment = await db.Comment.findById(req.params.id)
-    if (userComment.userId === req.user.id) {
+    if (userComment.userId.toString() === req.user.id) {
         const deletedComment = await db.Comment.findByIdAndRemove(req.params.id)
         res.send('You deleted comment ' + deletedComment._id)
     } else {
