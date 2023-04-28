@@ -1,5 +1,6 @@
 import { Navbar, Dropdown, Avatar } from "flowbite-react"
 import { Link } from "react-router-dom"
+import accountLogo from '../../assets/account-circle.svg';
 
 
 export default function Head() {
@@ -22,7 +23,7 @@ export default function Head() {
             label={
                 <Avatar 
                     alt="Account" 
-                    img="../src/assets/account-circle.svg" 
+                    img={accountLogo}
                     className="scale-75"
                 />  
             }
