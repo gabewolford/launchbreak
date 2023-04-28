@@ -22,7 +22,7 @@ export default function Head() {
             label={
                 <Avatar 
                     alt="Account" 
-                    img="../src/assets/account-circle.svg" 
+                    img="../../assets/account-circle.svg" 
                     className="scale-75"
                 />  
             }
