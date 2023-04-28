@@ -5,7 +5,6 @@ import LoadingSpinner from '../LoadingSpinner'
 
 
 export default function AstronautDetailsPage({ astronautData, updateDetails, detailPageId }) {
-    
     useEffect(() => {
         getData(`https://lldev.thespacedevs.com/2.2.0/astronaut/${detailPageId}`)
             .then(res => updateDetails(res))

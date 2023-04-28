@@ -13,18 +13,6 @@ export default function LaunchDetailsPage({ launchData, setDetailPage }) {
             .then(res => setDetailPage(res))  
         }
     }, [])
-    // will run on initial render
-
-    // useEffect(() => {
-    //     if (launchData) {
-    //         console.log(launchData)
-    //         localStorage.setItem('launch', JSON.stringify(launchData))
-    //     } else {
-    //         updateDetails(JSON.parse(localStorage.getItem('launch')))
-    //     }
-    // }, )
-    // will run every render
-
  
     let page = <>
                 <LoadingSpinner/>
