@@ -1,6 +1,7 @@
 export default function LoadingSpinner() {
     return (
         <>
+        {/* https://flowbite.com/docs/components/spinner/ */}
             <div className="flex h-screen">
                 <div className="m-auto">
                     <div role="status">

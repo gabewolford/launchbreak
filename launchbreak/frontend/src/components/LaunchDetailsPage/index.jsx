@@ -6,10 +6,22 @@ import LoadingSpinner from '../LoadingSpinner'
 export default function LaunchDetailsPage({ launchData, updateDetails, detailPageId }) {
 
     useEffect(() => {
-        getData(`https://ll.thespacedevs.com/2.2.0/launch/upcoming/${detailPageId}`)
+        getData(`https://lldev.thespacedevs.com/2.2.0/launch/upcoming/${detailPageId}`)
             .then(res => updateDetails(res))
+
+        // setTimeout(() => {
+        //     console.log('1 second delay')
+        // }, 1000)
+        
+        // if (launchData) {
+        //     console.log(launchData)
+        //     localStorage.setItem('launch', JSON.stringify(launchData))
+        // } else {
+        //     updateDetails(JSON.parse(localStorage.getItem('launch')))
+        // }
     }, [])
 
+ 
     let page = <>
                 <LoadingSpinner/>
                 </>
