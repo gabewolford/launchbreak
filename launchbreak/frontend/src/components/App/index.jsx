@@ -25,7 +25,6 @@ import './styles.css'
 
 function App() {
   const [launches, setLaunches] = useState([])
-  const [detailPageId , setDetailPageId] = useState(null)
   const [news, setNews] = useState([])
   const [agencies, setAgencies] = useState([])
   const [spacecrafts, setSpacecraft] = useState([])
@@ -81,14 +80,14 @@ function App() {
     let spacecraftList
     if (spacecrafts.length > 0) {
         spacecraftList = spacecrafts
-          .map((spacecraft, i) => <SpacecraftCard key={i} spacecraftData={spacecraft} setDetailPageId={setDetailPageId}/>)
+          .map((spacecraft, i) => <SpacecraftCard key={i} spacecraftData={spacecraft} setDetailPage={setDetailPage}/>)
     } 
 
 
     let astronautList
     if (astronauts.length > 0) {
         astronautList = astronauts
-          .map((astronaut, i) => <AstronautCard key={i} astronautData={astronaut} setDetailPageId={setDetailPageId} />)
+          .map((astronaut, i) => <AstronautCard key={i} astronautData={astronaut} setDetailPage={setDetailPage}/>)
     } 
 
   return (
@@ -103,10 +102,10 @@ function App() {
         <Route path="/news" element={<NewsPage newsList={newsList}/>} />
         <Route path="/agencies" element={<AgenciesPage agencyList={agencyList}/>} />
         <Route path="/agencies/:id" element={<AgencyDetailsPage agencyData={detailPage} setDetailPage={setDetailPage} />} />
-        <Route path="/astronauts" element={<AstronautsPage astronautList={astronautList} setDetailPageId={setDetailPageId}/>} />
-        <Route path="/astronaut/:id" element={<AstronautDetailsPage astronautData={detailPage} updateDetails={setDetailPage} detailPageId={detailPageId}/>} />
+        <Route path="/astronauts" element={<AstronautsPage astronautList={astronautList} />} />
+        <Route path="/astronaut/:id" element={<AstronautDetailsPage astronautData={detailPage} setDetailPage={setDetailPage} />} />
         <Route path="/spacecraft" element={<SpacecraftPage spacecraftList={spacecraftList}/>} />
-        <Route path="/spacecraft/:id" element={<SpacecraftDetailsPage spacecraftData={detailPage} updateDetails={setDetailPage} detailPageId={detailPageId}/>} />
+        <Route path="/spacecraft/:id" element={<SpacecraftDetailsPage spacecraftData={detailPage} setDetailPage={setDetailPage} />} />
         <Route path="/account" element={<AccountPage />} />
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>

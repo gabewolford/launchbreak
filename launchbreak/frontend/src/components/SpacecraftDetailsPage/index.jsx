@@ -1,18 +1,20 @@
 import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import { getData } from '../../../utils/api'
 import LoadingSpinner from '../LoadingSpinner'
 
 
-export default function SpacecraftDetailsPage({ spacecraftData, updateDetails, detailPageId }) {
-    
+export default function SpacecraftDetailsPage({ spacecraftData, setDetailPage }) {
+    const { id } = useParams()
+
     useEffect(() => {
-        getData(`https://lldev.thespacedevs.com/2.2.0/spacecraft/${detailPageId}`)
-            .then(res => updateDetails(res))
+        getData(`https://lldev.thespacedevs.com/2.2.0/spacecraft/${id}`)
+            .then(res => setDetailPage(res))
     }, [])
 
     let page = <LoadingSpinner/>
 
-    if (spacecraftData && spacecraftData.id === detailPageId) {
+    if (spacecraftData) {
          page = <>
                     <div className="mx-12">
                         <h1 className="text-3xl mt-6 mb-12 font-bold">Spacecraft Details</h1>
@@ -55,11 +57,7 @@ export default function SpacecraftDetailsPage({ spacecraftData, updateDetails, d
                         <div className="bg-gray-500 p-2 mb-2 w-fit rounded">
                             <p className="text-md md:text-sm"><em>Crew Capacity:&nbsp;&nbsp;</em>{spacecraftData.crew_capacity}</p>
                             <p className="text-md md:text-sm"><em>Flight Life:&nbsp;&nbsp;</em>{spacecraftData.flight_life}</p>
-                            {/* <p className="text-md md:text-sm font-bold"><em>Flights: &nbsp;&nbsp;</em>{(agencyData.successful_launches / agencyData.total_launch_count)*100}%</p> */}
                         </div>
-
-                        
-                        
                     </div>
                 </>
         }
