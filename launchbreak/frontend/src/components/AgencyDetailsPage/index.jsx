@@ -19,16 +19,13 @@ export default function AgencyDetailsPage({ agencyData, updateDetails, detailPag
                     </div>
                     <div className="flex rounded-lg bg-gray-600 mx-12 lg:max-w-[70vw] lg:mx-auto">
                         <div className="flex-1 m-4 relative">
-                            <img src={agencyData.logo_url} className="w-full border-2 border-blue-300" />
+                            <img src={agencyData.logo_url} className="w-full border-2 border-blue-300 p-6" />
                         </div>
                         <div className="flex-1 flex flex-col mr-4">
                             <div className="flex-1 py-3">
-                            <h1 className="text-3xl font-bold">{agencyData.name}</h1>
+                            <h1 className="text-3xl font-bold mb-2">{agencyData.name}</h1>
                                 <div className="bg-gray-500 p-2 mb-2 w-fit rounded">
                                     <p className="text-md md:text-sm"><em>Abbreviation:&nbsp;&nbsp;</em>{agencyData.abbrev}</p>
-                                </div>
-                                <div className="bg-gray-500 p-2 mb-2 w-fit rounded">
-                                    <p className="text-md md:text-sm"><em>Parent:&nbsp;&nbsp;</em>{agencyData.parent}</p>
                                 </div>
                                 <div className="bg-gray-500 p-2 mb-2 w-fit rounded">    
                                     <p className="text-md md:text-sm"><em>Administrator :&nbsp;&nbsp;</em>{agencyData.administrator}</p>
