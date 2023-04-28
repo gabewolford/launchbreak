@@ -18,6 +18,7 @@ export async function getComments(launchId) {
 }
 
 export async function postComment(comment) {
+    console.log(comment, authHeader)
     const { data } = await axios.post('/api/comments', comment, authHeader)
     return data
 }
