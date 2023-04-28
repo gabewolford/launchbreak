@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { getData } from "../../../utils/api"
+import AuthFormPage from '../AuthFormPage'
 import Head from "../Head"
 import HomePage from '../HomePage'
 import LaunchesPage from "../LaunchesPage"
@@ -94,6 +95,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/auth/:formType" element={<AuthFormPage />} />
         <Route path="/launches" element={<LaunchesPage upcomingLaunches={upcomingLaunches} setDetailPageId={setDetailPageId}/>} />
         <Route path="/launch/:slug" element={<LaunchDetailsPage launchData={detailPage} updateDetails={setDetailPage} detailPageId={detailPageId} />}/>
         <Route path="/news" element={<NewsPage newsList={newsList}/>} />

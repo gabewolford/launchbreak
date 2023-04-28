@@ -98,9 +98,15 @@ router.put('/:id', authMiddleware, async (req, res) => {
 
 // Destroy Route (DELETE/Delete): This route deletes a comment document 
 // using the URL parameter (which will always be the comment document's ID)
-router.delete('/:id', (req, res) => {
-    db.Comment.findByIdAndRemove(req.params.id)
-        .then(() => res.send('You deleted comment ' + req.params.id))
+router.delete('/:id', authMiddleware, async (req, res) => {
+    // Check if the user who sent the delete request is the same user who created the comment
+    const userComment = await db.Comment.findById(req.params.id)
+    if (userComment.userId === req.user.id) {
+        const deletedComment = await db.Comment.findByIdAndRemove(req.params.id)
+        res.send('You deleted comment ' + deletedComment._id)
+    } else {
+        res.status(401).json({ message: 'Invalid user or token' });
+    }
 })
 
 

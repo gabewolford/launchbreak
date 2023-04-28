@@ -1,5 +1,5 @@
 import { Navbar, Dropdown, Avatar } from "flowbite-react"
-import { Link, NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
 export default function Head() {
@@ -21,15 +21,13 @@ export default function Head() {
             className="border-grey rounded-sm"
             label={
                 <Avatar 
-                    alt="User settings" 
-                    img="https://media.licdn.com/dms/image/D5603AQEYpl9aHSV4mg/profile-displayphoto-shrink_400_400/0/1676919210013?e=1687392000&v=beta&t=tRPAP6QTHC48o5wyaMGraZ_LfhhdbxeA8jUZSvGHRDs" 
-                    rounded={true}
-                    className="mr-2"
-                />
-                    
+                    alt="Account" 
+                    img="../src/assets/account-circle.svg" 
+                    className="scale-75"
+                />  
             }
             >
-            <Dropdown.Header>
+            {/* <Dropdown.Header>
                 <span className="block text-sm text-black">
                 Welcome back,
                 </span>
@@ -46,7 +44,20 @@ export default function Head() {
             <Dropdown.Divider />
             <Dropdown.Item className=" hover:bg-transparent hover:text-orange-400 text-black hover-underline-animation">
                 Sign out
+            </Dropdown.Item> */}
+
+            <Dropdown.Item className="hover:bg-transparent hover:text-orange-400 text-black hover-underline-animation">
+                <Link to="/auth/login">
+                    Log In
+                </Link>
             </Dropdown.Item>
+            <Dropdown.Item className="hover:bg-transparent hover:text-orange-400 text-black hover-underline-animation">
+                <Link to="/auth/signup">
+                    Create Account
+                </Link>
+            </Dropdown.Item>
+            
+
             </Dropdown>
             <Navbar.Toggle />
         </div>
