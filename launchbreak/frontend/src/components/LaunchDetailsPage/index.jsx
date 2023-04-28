@@ -9,7 +9,7 @@ export default function LaunchDetailsPage({ launchData, setDetailPage }) {
     
     useEffect(() => {
         if (!launchData) {
-        getData(`https://ll.thespacedevs.com/2.2.0/launch/upcoming/${id}`)
+        getData(`https://lldev.thespacedevs.com/2.2.0/launch/upcoming/${id}`)
             .then(res => setDetailPage(res))  
         }
     }, [])
@@ -34,7 +34,7 @@ export default function LaunchDetailsPage({ launchData, setDetailPage }) {
                                 <p className="mb-4 text-2xl md:text-4xl font-bold">{new Date(launchData.net).toLocaleString()}</p> 
                                 <p className='mb-4'>{launchData.mission?.description}</p>
                                 <div className='mb-1'>
-                                    {/* {launchData.webcast_live === false && <a className='bg-gray-500 px-3 py-1 rounded hidden'>Livestream</a>} */}
+                                    {launchData.webcast_live === false && <a className='bg-gray-500 px-3 py-1 rounded hidden'>Livestream</a>}
                                     {launchData.webcast_live === true && <a className='bg-blue-900 hover:bg-blue-800 px-3 py-1 rounded' href={launchData.vidURLs}>Livestream</a>}
                                 </div>
                             </div>

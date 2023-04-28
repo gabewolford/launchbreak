@@ -8,7 +8,7 @@ export default function AgencyDetailsPage({ agencyData, setDetailPage }) {
     const { id } = useParams()
 
     useEffect(() => {
-        getData(`https://ll.thespacedevs.com/2.2.0/agencies/${id}`)
+        getData(`https://lldev.thespacedevs.com/2.2.0/agencies/${id}`)
             .then(res => setDetailPage(res))
     }, [])
 
