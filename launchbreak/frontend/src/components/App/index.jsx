@@ -16,6 +16,7 @@ import AstronautCard from "../AstronautCard"
 import AstronautDetailsPage from "../AstronautDetailsPage"
 import AstronautsPage from "../AstronautsPage"
 import SpacecraftPage from "../SpacecraftPage"
+import SpacecraftDetailsPage from "../SpacecraftDetailsPage"
 import SpacecraftCard from "../SpacecraftCard"
 import AccountPage from "../AccountPage"
 import NotFoundPage from '../NotFoundPage'
@@ -105,7 +106,7 @@ function App() {
         <Route path="/astronauts" element={<AstronautsPage astronautList={astronautList} setDetailPageId={setDetailPageId}/>} />
         <Route path="/astronaut/:id" element={<AstronautDetailsPage astronautData={detailPage} updateDetails={setDetailPage} detailPageId={detailPageId}/>} />
         <Route path="/spacecraft" element={<SpacecraftPage spacecraftList={spacecraftList}/>} />
-        <Route path="/spacecraft/:id" element={<AgenciesPage spacecraftList={spacecraftList} updateDetails={setDetailPage} detailPageId={detailPageId}/>} />
+        <Route path="/spacecraft/:id" element={<SpacecraftDetailsPage spacecraftData={detailPage} updateDetails={setDetailPage} detailPageId={detailPageId}/>} />
         <Route path="/account" element={<AccountPage />} />
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
