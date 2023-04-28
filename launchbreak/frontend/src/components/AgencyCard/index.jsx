@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
 
 
-export default function AgencyCard({ agencyData, setDetailPageId }) {
+export default function AgencyCard({ agencyData, setDetailPage }) {
 
     return (
         <>
             <Link 
                 to={`/agencies/${agencyData.id}`}
-                onClick={() => setDetailPageId(agencyData.id)}
+                onClick={() => setDetailPage(agencyData)}
             >
             <div id="agency-card" className='mb-6 p-4 flex flex-col lg:flex-row bg-gray-600 rounded-lg'>
                 <div className="lg:w-1/2 lg:mr-4">

@@ -1,18 +1,20 @@
 import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import { getData } from '../../../utils/api'
 import LoadingSpinner from '../LoadingSpinner'
 
 
-export default function AgencyDetailsPage({ agencyData, updateDetails, detailPageId }) {
-    
+export default function AgencyDetailsPage({ agencyData, setDetailPage }) {
+    const { id } = useParams()
+
     useEffect(() => {
-        getData(`https://lldev.thespacedevs.com/2.2.0/agencies/${detailPageId}`)
-            .then(res => updateDetails(res))
+        getData(`https://lldev.thespacedevs.com/2.2.0/agencies/${id}`)
+            .then(res => setDetailPage(res))
     }, [])
 
     let page = <LoadingSpinner/>
 
-    if (agencyData && agencyData.id === detailPageId) {
+    if (agencyData) {
          page = <>
                     <div className="mx-12">
                         <h1 className="text-3xl mt-6 mb-12 font-bold">Agency Details</h1>

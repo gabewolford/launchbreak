@@ -74,7 +74,7 @@ function App() {
     let agencyList
     if (agencies.length > 0) {
         agencyList = agencies
-          .map((agency, i) => <AgencyCard key={i} agencyData={agency} setDetailPageId={setDetailPageId}/>)
+          .map((agency, i) => <AgencyCard key={i} agencyData={agency} setDetailPage={setDetailPage}/>)
     } 
 
 
@@ -98,11 +98,11 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/auth/:formType" element={<AuthFormPage />} />
-        <Route path="/launches" element={<LaunchesPage upcomingLaunches={upcomingLaunches} setDetailPageId={setDetailPageId}/>} />
-        <Route path="/launch/:id" element={<LaunchDetailsPage launchData={detailPage} setDetailPage={setDetailPage} detailPageId={detailPageId} />}/>
+        <Route path="/launches" element={<LaunchesPage upcomingLaunches={upcomingLaunches}/>} />
+        <Route path="/launch/:id" element={<LaunchDetailsPage launchData={detailPage} setDetailPage={setDetailPage} />}/>
         <Route path="/news" element={<NewsPage newsList={newsList}/>} />
         <Route path="/agencies" element={<AgenciesPage agencyList={agencyList}/>} />
-        <Route path="/agencies/:id" element={<AgencyDetailsPage agencyData={detailPage} updateDetails={setDetailPage} detailPageId={detailPageId}/>} />
+        <Route path="/agencies/:id" element={<AgencyDetailsPage agencyData={detailPage} setDetailPage={setDetailPage} />} />
         <Route path="/astronauts" element={<AstronautsPage astronautList={astronautList} setDetailPageId={setDetailPageId}/>} />
         <Route path="/astronaut/:id" element={<AstronautDetailsPage astronautData={detailPage} updateDetails={setDetailPage} detailPageId={detailPageId}/>} />
         <Route path="/spacecraft" element={<SpacecraftPage spacecraftList={spacecraftList}/>} />
