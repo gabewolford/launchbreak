@@ -16,14 +16,20 @@ export default function LaunchCard({ launchData, setDetailPage }) {
                 <div className="flex-1 mt-4 lg:mt-0">
                     <div className="flex flex-col justify-center">
                     <h1 className="text-2xl font-bold mb-2">{launchData.name}</h1>
-                                <p className='mb-3 text-blue-300 text-lg font-bold'>{launchData?.launch_service_provider?.name}</p>
+                        <p className='mb-3 text-blue-300 text-lg font-bold'>{launchData?.launch_service_provider?.name}</p>
 
-                                <p className="mb-4 text-2xl md:text-4xl font-bold">{new Date(launchData.net).toLocaleString()}</p> 
+                        <p className="mb-3 text-2xl md:text-4xl font-bold">{new Date(launchData.net).toLocaleString()}</p> 
                         
-                        <p>{launchData.pad.name}</p>
-                        <p className=''>{launchData.pad.location.name}</p>
-
-                        
+                        <div title={launchData.status.description}>Status: {launchData.status.name}</div>
+                        <div className='bg-gray-600 rounded-lg h-fit'>
+                            <div className="pt-4">
+                                <h2 className="text-l font-bold mb-4">Launching From</h2>
+                                <div className="bg-gray-500 p-3 mb-4 w-fit text-left rounded">
+                                    <p className="text-md text-blue-300">{launchData.pad.name}</p>
+                                    <p className="text-md">{launchData.pad.location.name}</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -30,8 +30,8 @@ export default function LaunchDetailsPage({ launchData, setDetailPage }) {
                                 <p className="mb-4 text-2xl md:text-4xl font-bold">{new Date(launchData.net).toLocaleString()}</p> 
                                 <p className='mb-4'>{launchData.mission?.description}</p>
                                 <div className='mb-1'>
-                                    {launchData.webcast_live === false && <a className='bg-gray-500 px-3 py-1 rounded hidden'>Livestream</a>}
-                                    {launchData.webcast_live === true && <a className='bg-blue-900 hover:bg-blue-800 px-3 py-1 rounded' href={launchData.vidURLs}>Livestream</a>}
+                                    {launchData.webcast_live === false && <a className='bg-gray-500 px-3 py-1 rounded'>Livestream</a>}
+                                    {launchData.webcast_live === true && <a className='bg-blue-900 hover:bg-blue-800 px-3 py-1 rounded' href={launchData.vidURLs}>Watch Now</a>}
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@ export default function LaunchDetailsPage({ launchData, setDetailPage }) {
                         <div className='bg-gray-600 rounded-lg h-fit lg:w-1/2'>
                             <div className="px-4 pt-4">
                                 <h2 className="text-xl font-bold mb-4">Launching From</h2>
-                                <div className="bg-gray-500 p-3 mb-4 w-1/2 text-center rounded">
+                                <div className="bg-gray-500 p-3 mb-4 w-fit text-left rounded">
                                     <p className="text-md lg:text-lg text-blue-300">{launchData.pad.name}</p>
                                     <p className="text-md lg:text-lg">{launchData.pad.location.name}</p>
                                 </div>
