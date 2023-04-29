@@ -30,6 +30,7 @@ function App() {
   const [spacecrafts, setSpacecraft] = useState([])
   const [astronauts, setAstronauts] = useState([])
   const [detailPage, setDetailPage] = useState()
+  const [authenticated, setAuthenticated] = useState(localStorage.getItem('userToken') ? true : false)
 
 
   useEffect(() => {
@@ -92,11 +93,11 @@ function App() {
 
   return (
     <>
-      <Head />
+      <Head authenticated={authenticated} setAuthenticated={setAuthenticated}/>
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/auth/:formType" element={<AuthFormPage />} />
+        <Route path="/auth/:formType" element={<AuthFormPage authenticated={authenticated} setAuthenticated={setAuthenticated}/>} />
         <Route path="/launches" element={<LaunchesPage upcomingLaunches={upcomingLaunches}/>} />
         <Route path="/launch/:id" element={<LaunchDetailsPage launchData={detailPage} setDetailPage={setDetailPage} />}/>
         <Route path="/news" element={<NewsPage newsList={newsList}/>} />

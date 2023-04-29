@@ -1,9 +1,57 @@
 import { Navbar, Dropdown, Avatar } from "flowbite-react"
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import accountLogo from '../../assets/account-circle.svg';
 
 
-export default function Head() {
+export default function Head({ authenticated, setAuthenticated }) {
+    const navigate = useNavigate()
+
+    function signout() {
+        localStorage.removeItem("userToken")
+        setAuthenticated(false)
+        navigate('/')
+    }
+
+    const defaultUserDropdown = (
+    <>
+        <Dropdown.Item className="hover:bg-transparent hover:text-orange-400 text-black hover-underline-animation">
+            <Link to="/auth/login">
+                Log In
+            </Link>
+        </Dropdown.Item>
+        <Dropdown.Item className="hover:bg-transparent hover:text-orange-400 text-black hover-underline-animation">
+            <Link to="/auth/signup">
+                Create Account
+            </Link>
+        </Dropdown.Item>
+    </>
+    )
+
+    const authenticatedUserDropdown = (
+        <>
+            <Dropdown.Header>
+                <span className="block text-sm text-black">
+                Welcome back!
+                </span>
+                {/* <span className="block truncate text-sm font-bold text-black">
+                username
+                </span> */}
+            </Dropdown.Header>
+            <Dropdown.Item className="hover:bg-transparent hover:text-orange-400 text-black hover-underline-animation">
+                Account
+            </Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item 
+                className=" hover:bg-transparent hover:text-orange-400 text-black hover-underline-animation"
+                onClick={signout}
+            >
+                Sign out
+            </Dropdown.Item>
+        </>
+    )
+    
+
     return (
         <Navbar
         fluid={true}
@@ -28,36 +76,9 @@ export default function Head() {
                 />  
             }
             >
-            {/* <Dropdown.Header>
-                <span className="block text-sm text-black">
-                Welcome back,
-                </span>
-                <span className="block truncate text-sm font-bold text-black">
-                username
-                </span>
-            </Dropdown.Header>
-            <Dropdown.Item className="hover:bg-transparent hover:text-orange-400 text-black hover-underline-animation">
-                Account
-            </Dropdown.Item>
-            <Dropdown.Item className="hover:bg-transparent hover:text-orange-400 text-black hover-underline-animation">
-                Settings
-            </Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item className=" hover:bg-transparent hover:text-orange-400 text-black hover-underline-animation">
-                Sign out
-            </Dropdown.Item> */}
-
-            <Dropdown.Item className="hover:bg-transparent hover:text-orange-400 text-black hover-underline-animation">
-                <Link to="/auth/login">
-                    Log In
-                </Link>
-            </Dropdown.Item>
-            <Dropdown.Item className="hover:bg-transparent hover:text-orange-400 text-black hover-underline-animation">
-                <Link to="/auth/signup">
-                    Create Account
-                </Link>
-            </Dropdown.Item>
             
+            {authenticated && authenticatedUserDropdown}
+            {!authenticated && defaultUserDropdown}
 
             </Dropdown>
             <Navbar.Toggle />
