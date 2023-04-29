@@ -1,19 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { signUp, logIn } from "../../../utils/backend"
 
 
-export default function AuthFormPage({ authenticated }) {
-    let navigate = useNavigate()
-    
-
-    if (authenticated) {
-        useEffect(() => {
-            console.log('already authenticated')
-        navigate('/launches')
-        }
-    ), []}
-    
+export default function AuthFormPage() {
 
     const [formData, setFormData] = useState({
         email: "",
@@ -24,6 +14,7 @@ export default function AuthFormPage({ authenticated }) {
         setFormData({ ...formData, [event.target.name]: event.target.value });
     };
 
+    const navigate = useNavigate()
     const { formType } = useParams()
 
     let actionText
@@ -48,9 +39,8 @@ export default function AuthFormPage({ authenticated }) {
             const { token } = await signUp(formData)
             localStorage.setItem('userToken', token)
         }
-
         // redirect to the home page after signing/logging in
-        navigate('/')
+        navigate('/launches')
     }
 
     return (

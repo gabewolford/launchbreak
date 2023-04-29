@@ -54,6 +54,7 @@ function App() {
       .then(res => {
         setAstronauts(res.results)
     })
+    setAuthenticated(localStorage.getItem('userToken') ? true : false)
   }, [])
 
 
@@ -98,7 +99,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/auth/:formType" element={<AuthFormPage authenticated={authenticated} setAuthenticated={setAuthenticated}/>} />
-        <Route path="/launches" element={<LaunchesPage upcomingLaunches={upcomingLaunches}/>} />
+        <Route path="/launches" element={<LaunchesPage upcomingLaunches={upcomingLaunches} setAuthenticated={setAuthenticated}/>} />
         <Route path="/launch/:id" element={<LaunchDetailsPage launchData={detailPage} setDetailPage={setDetailPage} />}/>
         <Route path="/news" element={<NewsPage newsList={newsList}/>} />
         <Route path="/agencies" element={<AgenciesPage agencyList={agencyList}/>} />

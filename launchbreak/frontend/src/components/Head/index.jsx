@@ -11,6 +11,7 @@ export default function Head({ authenticated, setAuthenticated }) {
         localStorage.removeItem("userToken")
         setAuthenticated(false)
         navigate('/')
+        console.log(authenticated)
     }
 
     const defaultUserDropdown = (
@@ -31,7 +32,7 @@ export default function Head({ authenticated, setAuthenticated }) {
     const authenticatedUserDropdown = (
         <>
             <Dropdown.Header>
-                <span className="block text-sm text-black">
+                <span className="block text-sm text-black font-bold">
                 Welcome back!
                 </span>
                 {/* <span className="block truncate text-sm font-bold text-black">

@@ -1,4 +1,6 @@
-export default function LaunchesPage({ upcomingLaunches }) {
+export default function LaunchesPage({ upcomingLaunches, setAuthenticated }) {
+    setAuthenticated(localStorage.getItem('userToken') ? true : false)
+
     return (
         <>
             <div className="mx-12">
