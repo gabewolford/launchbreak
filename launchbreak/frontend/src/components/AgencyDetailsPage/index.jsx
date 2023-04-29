@@ -15,7 +15,7 @@ export default function AgencyDetailsPage({ agencyData, setDetailPage }) {
     let page = <LoadingSpinner/>
 
     if (agencyData) {
-         page = <>
+        page = <>
                     <div className="mx-12">
                         <h1 className="text-3xl mt-6 mb-12 font-bold">Agency Details</h1>
                     </div>

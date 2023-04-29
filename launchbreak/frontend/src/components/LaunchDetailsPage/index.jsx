@@ -12,10 +12,8 @@ export default function LaunchDetailsPage({ launchData, setDetailPage }) {
             .then(res => setDetailPage(res))  
     }, [])
  
-    let page = <>
-                <LoadingSpinner/>
-                </>
-
+    let page = <LoadingSpinner/>
+           
     if (launchData) {
         page = <>
                     <div className="mx-12">
@@ -82,7 +80,7 @@ export default function LaunchDetailsPage({ launchData, setDetailPage }) {
                                             <td scope="row" className="px-4 py-2 text-black italic font-bold border-r">
                                                 Name
                                             </td>
-                                            {launchData.rocket.configuration.full_name ? <td className="px-4 py-2 text-black">{launchData.rocket.configuration?.full_name}</td> : <td className="px-4 py-2 text-black">N/A</td>}
+                                            {launchData.rocket.configuration.full_name ? <td className="px-4 py-2 text-black">{launchData.rocket.configuration.full_name}</td> : <td className="px-4 py-2 text-black">N/A</td>}
                                         </tr>
                                         <tr className="border-b bg-gray-100">
                                             <th scope="row" className="px-4 py-2 text-black italic font-bold border-r">
