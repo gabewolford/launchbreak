@@ -19,7 +19,7 @@ export default function LaunchDetailsPage({ launchData, setDetailPage, authentic
     } else if (authenticated === false) {
         comments =
         <p>
-            <a href='/auth/login'>Log in</a> or <a href='/auth/signup'>create an account</a> to leave a comment. 
+            <a className='text-blue-600' href='/auth/login'>Log in</a> or <a className='text-blue-600' href='/auth/signup'>create an account</a> to leave a comment. 
         </p>
     }
 
