@@ -34,7 +34,7 @@ function App() {
 
 
   useEffect(() => {
-    getData('https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=50')
+    getData('https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=20')
       .then(res => {
         setLaunches(res.results)
     })
@@ -99,8 +99,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/auth/:formType" element={<AuthFormPage authenticated={authenticated} setAuthenticated={setAuthenticated}/>} />
-        <Route path="/launches" element={<LaunchesPage upcomingLaunches={upcomingLaunches} setAuthenticated={setAuthenticated}/>} />
-        <Route path="/launch/:id" element={<LaunchDetailsPage launchData={detailPage} setDetailPage={setDetailPage} />}/>
+        <Route path="/launches" element={<LaunchesPage upcomingLaunches={upcomingLaunches} setAuthenticated={setAuthenticated} />} />
+        <Route path="/launch/:id" element={<LaunchDetailsPage launchData={detailPage} setDetailPage={setDetailPage} authenticated={authenticated} />}/>
         <Route path="/news" element={<NewsPage newsList={newsList}/>} />
         <Route path="/agencies" element={<AgenciesPage agencyList={agencyList}/>} />
         <Route path="/agencies/:id" element={<AgencyDetailsPage agencyData={detailPage} setDetailPage={setDetailPage} />} />
