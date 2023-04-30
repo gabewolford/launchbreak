@@ -44,7 +44,7 @@ export default function AuthFormPage() {
     }
 
     return (
-        <div className="flex items-center justify-center h-[90vh]">
+        <div className="mx-6 flex items-center justify-center h-[90vh]">
             <div className="bg-gray-500 rounded-lg shadow-xl p-8 w-full max-w-md">
                 <h2 className="text-3xl text-center font-bold text-gray-100 mb-8">{actionText}</h2>
                 <form 
