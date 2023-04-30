@@ -16,10 +16,10 @@ export default function SpacecraftDetailsPage({ spacecraftData, setDetailPage })
 
     if (spacecraftData) {
          page = <>
-                    <div className="mx-12">
+                    <div className="mx-12 lg:max-w-[75vw] lg:mx-auto">
                         <h1 className="text-3xl mt-6 mb-12 font-bold">Spacecraft Details</h1>
                     </div>
-                    <div className="flex rounded-lg bg-gray-600 mx-12 lg:max-w-[70vw] lg:mx-auto">
+                    <div className="flex rounded-lg bg-gray-600 mx-12 lg:max-w-[75vw] lg:mx-auto">
                         <div className="flex-1 m-4 relative">
                             <img src={spacecraftData.spacecraft_config.image_url} className="w-full border-2 border-blue-300" />
                         </div>
@@ -52,7 +52,7 @@ export default function SpacecraftDetailsPage({ spacecraftData, setDetailPage })
                         <h1 className='text-2xl font-bold mb-4'>About</h1>
                         <p className='bg-gray-500 p-4 rounded'>{spacecraftData.description}</p>
                     </div>
-                    <div className="rounded-lg bg-gray-600 mx-12 lg:max-w-[70vw] lg:mx-auto mt-4 p-4">
+                    <div className="rounded-lg bg-gray-600 mx-12 lg:max-w-[75vw] lg:mx-auto mt-4 p-4">
                         <h1 className='text-2xl font-bold mb-4'>Specifications</h1>
                         <div className="bg-gray-500 p-2 mb-2 w-fit rounded">
                             <p className="text-md md:text-sm"><em>Crew Capacity:&nbsp;&nbsp;</em>{spacecraftData.crew_capacity}</p>
