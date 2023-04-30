@@ -45,23 +45,15 @@ export default function LaunchDetailsPage({ launchData, setDetailPage }) {
                                     <p className="text-md lg:text-lg text-blue-300">{launchData.pad.name}</p>
                                     <p className="text-md lg:text-lg">{launchData.pad.location.name}</p>
                                 </div>
-                            <div className="flex bg-gray-500 p-2 mb-4 rounded">
-                                <div className="flex-auto mr-2 border-2 border-blue-300 rounded text-md md:text-lg px-2 text-center">
-                                    <p className='py-1'>Latitude | {launchData.pad.latitude}</p>
-                                </div>
-                                <div className="flex-auto ml-2 border-2 border-blue-300 rounded text-md md:text-lg px- text-center">
-                                    <p className='py-1'>Longitude | {launchData.pad.longitude}</p>
-                                </div>
-                            </div>
-
-
                             </div>
                             <div className='px-4 pb-4'>
-                                <iframe 
-                                    src ={`https://maps.google.com/maps?q=${launchData.pad.latitude},${launchData.pad.longitude}&hl=en&z=14&output=embed`}
-                                    className="min-h-[200px] w-full border-4 border-blue-300"
-                                    >
-                                </iframe>
+                                <div className="relative">
+                                    <iframe 
+                                        src ={`https://maps.google.com/maps?q=${launchData.pad.latitude},${launchData.pad.longitude}&hl=en&z=14&output=embed`}
+                                        className="min-h-[300px] w-full border-4 border-blue-300"
+                                        >
+                                    </iframe>
+                                </div>
                             </div>
                         </div>
 
