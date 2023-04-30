@@ -16,7 +16,7 @@ export default function LaunchDetailsPage({ launchData, setDetailPage }) {
            
     if (launchData) {
         page = <>
-                    <div className="mx-12">
+                    <div className="mx-12 lg:max-w-[75vw] lg:mx-auto">
                         <h1 className="text-3xl mt-6 mb-12 font-bold">Launch Details</h1>
                     </div>
                     <div className='mx-12 lg:max-w-[75vw] lg:mx-auto max-h-fit flex flex-col lg:flex-row bg-gray-600 rounded-lg'>
