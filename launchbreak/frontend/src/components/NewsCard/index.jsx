@@ -3,9 +3,10 @@ import { Link } from "react-router-dom"
 export default function NewsCard({ newsData }) {
     return (
         <Link id="news-card" className="bg-gray-500 rounded-lg cursor-auto">
-                <img src={newsData.image_url} alt="Article image" className="mt-8"/>
-                <div className="p-3">
-                    <h2 className="text-2xl font-bold">{newsData.title}</h2>
+                <h2 className="text-2xl p-3 font-bold">{newsData.title}</h2>
+                <img src={newsData.image_url} alt="Article image" className=""/>
+                <div className="px-3 pb-3">
+                    
                     <p className="text-xs text-blue-300 pt-2 mb-3">Published {new Date(newsData.published_at).toLocaleString()}</p>
                     <p className="mb-4">{newsData.summary}</p>
                     <div className="mb-1 text-left">
