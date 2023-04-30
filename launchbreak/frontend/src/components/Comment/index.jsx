@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { updateComment, deleteComment } from "../../../utils/backend"
 
-export default function Comment({ data, refreshComments }) {
+export default function Comment({ data, refreshComments, authenticated }) {
     const [showEditForm, setShowEditForm] = useState(false)
     const [editFormData, setEditFormData] = useState({
         name: data.name,
