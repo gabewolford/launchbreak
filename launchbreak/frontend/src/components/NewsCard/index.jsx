@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export default function NewsCard({ newsData }) {
     return (
-        <Link id="news-card" className="bg-gray-500 rounded-lg cursor-auto">
+        <div id="news-card" className="bg-gray-500 rounded-lg cursor-auto">
                 <h2 className="text-3xl px-3 pt-3 font-bold">{newsData.title}</h2>
                 <p className="text-xs text-blue-300 p-3">Published {new Date(newsData.published_at).toLocaleString()}</p>
                 <img src={newsData.image_url} alt="Article image"/>
@@ -14,6 +14,6 @@ export default function NewsCard({ newsData }) {
                         </a>
                     </div>
                 </div>
-        </Link>
+        </div>
     )
 }
