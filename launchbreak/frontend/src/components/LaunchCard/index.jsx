@@ -51,8 +51,8 @@ export default function LaunchCard({ launchData, setDetailPage }) {
                 <div className="lg:w-1/2 lg:mr-4 relative">
                     <img src={launchData.image} className="max-h-fill w-full lg:h-auto border-4 border-blue-300"/>
                     {launchStatus}
-                    <p className='bg-gray-500 bg-opacity-75 text-xs px-2 py-1 rounded m-3 absolute top-0 right-0'>
-                        Launch Window Opens: {new Date(launchData.window_start).toLocaleString()}
+                    <p className='bg-gray-500 bg-opacity-75 text-xs px-2 py-1 rounded m-3 absolute bottom-0 right-0'>
+                        Window Opens: {new Date(launchData.window_start).toLocaleString()}
                     </p>
                 </div>
                 <div className="flex-1 mt-4 lg:mt-0">

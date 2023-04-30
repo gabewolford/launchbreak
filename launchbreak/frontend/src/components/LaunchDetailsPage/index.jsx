@@ -1,11 +1,11 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getData } from '../../../utils/api'
 import Countdown from 'react-countdown'
 import CommentSection from '../CommentSection'
 import LoadingSpinner from '../LoadingSpinner'
 
-export default function LaunchDetailsPage({ launchData, setDetailPage }) {
+export default function LaunchDetailsPage({ launchData, setDetailPage, authenticated }) {
     const { id } = useParams()
     
     useEffect(() => {
@@ -13,9 +13,20 @@ export default function LaunchDetailsPage({ launchData, setDetailPage }) {
             .then(res => setDetailPage(res))  
     }, [])
  
+    let comments 
+    if (authenticated === true) {
+        comments = <CommentSection launchId={launchData.id}/>
+    } else if (authenticated === false) {
+        comments =
+        <p>
+            <a href='/auth/login'>Log in</a> or <a href='/auth/signup'>create an account</a> to leave a comment. 
+        </p>
+    }
+
     let page = <LoadingSpinner/>
            
     if (launchData) {
+
         let launchStatus
         const launchStatusData = launchData.status.abbrev
         if (launchStatusData === 'TBD') {
@@ -59,23 +70,23 @@ export default function LaunchDetailsPage({ launchData, setDetailPage }) {
                         <div className="m-4 lg:w-1/2 lg:mr-4 relative">
                             <img src={launchData.image} className="w-full lg:h-auto border-4 border-blue-300"/>
                             {launchStatus}
-                            <p className='bg-gray-500 bg-opacity-75 text-xs px-2 py-1 rounded m-3 absolute top-0 right-0'>
-                                Launch Window Opens: {new Date(launchData.window_start).toLocaleString()}
+                            <p className='bg-gray-500 bg-opacity-75 text-xs px-2 py-1 rounded m-3 absolute bottom-0 right-0'>
+                                Window Opens: {new Date(launchData.window_start).toLocaleString()}
                             </p>
                         </div>
                         <div className="mt-0 mb-4 flex-1">
                             <div className="flex flex-col justify-center px-4 lg:pl-0">
                                 <h1 className="text-2xl lg:mt-4 font-bold mb-2">{launchData.name}</h1>
                                 {launchData.mission && <em className='mb-3 text-blue-300'>{launchData.mission.type} mission to {launchData.mission.orbit.name} ({launchData.mission.orbit.abbrev}) by {launchData.launch_service_provider.name}</em>}
-                                {/* <p className="mb-4 text-2xl md:text-4xl font-bold">{new Date(launchData.net).toLocaleString()}</p>  */}
-                                <Countdown
+                                <p className="mb-4 text-2xl md:text-4xl font-bold">{new Date(launchData.net).toLocaleString()}</p>
+                                {/* <Countdown
                                     date={launchData.net}
                                     renderer={({ days, hours, minutes, seconds, completed }) => (
                                         <p className="mb-4 text-4xl font-bold">
                                         {completed ? 'LIFTOFF!' : `T - ${days}d ${hours}h ${minutes}m ${seconds}s`}
                                         </p>
                                     )}
-                                />
+                                /> */}
                                 <p className='mb-4'>{launchData.mission?.description}</p>
                                 <div className='mb-1'>
                                     {launchData.webcast_live === false && <a className='bg-gray-500 px-3 py-1 rounded'>Livestream Pending</a>}
@@ -196,7 +207,7 @@ export default function LaunchDetailsPage({ launchData, setDetailPage }) {
                     <div className='mx-12 max-h-fit flex flex-col lg:flex-row lg:max-w-[75vw] lg:mx-auto gap-5'>
                         <div className="lg:w-2/3">
                             <h1 className='text-2xl font-bold mb-5'>Comments</h1>
-                            <CommentSection launchId={launchData.id}/>
+                            {comments}
                         </div>
                     </div>
                 </>
