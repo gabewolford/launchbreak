@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getData } from '../../../utils/api'
+import Countdown from 'react-countdown'
 import CommentSection from '../CommentSection'
 import LoadingSpinner from '../LoadingSpinner'
 
@@ -15,23 +16,70 @@ export default function LaunchDetailsPage({ launchData, setDetailPage }) {
     let page = <LoadingSpinner/>
            
     if (launchData) {
+        let launchStatus
+        const launchStatusData = launchData.status.abbrev
+        if (launchStatusData === 'TBD') {
+            launchStatus = 
+                <div 
+                    title={launchData.status.description} 
+                    className='bg-yellow-400 text-white font-bold py-1 px-2 rounded w-fit absolute top-0 left-0 m-3'
+                >
+                {launchStatusData.toUpperCase()}
+                </div>
+        } else if (launchStatusData === 'TBC') {
+            launchStatus = 
+                <div 
+                    title={launchData.status.description} 
+                    className='bg-yellow-400 text-white font-bold py-1 px-2 rounded w-fit absolute top-0 left-0 m-3'
+                >
+                {launchStatusData.toUpperCase()}
+                </div>
+        } else if (launchStatusData === 'Go') {
+            launchStatus =
+                <div 
+                    title={launchData.status.description} 
+                    className='bg-green-500 text-white font-bold py-1 px-2 rounded w-fit absolute top-0 left-0 m-3'
+                >
+                {launchStatusData.toUpperCase()}
+                </div>
+        } else (
+            launchStatus =
+                <div 
+                    title={launchData.status.description} 
+                    className='bg-red-500 text-white font-bold py-1 px-2 rounded w-fit absolute top-0 left-0 m-3'
+                >
+                {launchStatusData.toUpperCase()}
+                </div>
+        )
         page = <>
                     <div className="mx-12 lg:max-w-[75vw] lg:mx-auto">
                         <h1 className="text-3xl mt-6 mb-12 font-bold">Launch Details</h1>
                     </div>
                     <div className='mx-12 lg:max-w-[75vw] lg:mx-auto max-h-fit flex flex-col lg:flex-row bg-gray-600 rounded-lg'>
-                        <div className="m-4 lg:w-1/2 lg:mr-4">
+                        <div className="m-4 lg:w-1/2 lg:mr-4 relative">
                             <img src={launchData.image} className="w-full lg:h-auto border-4 border-blue-300"/>
+                            {launchStatus}
+                            <p className='bg-gray-500 bg-opacity-75 text-xs px-2 py-1 rounded m-3 absolute top-0 right-0'>
+                                Launch Window Opens: {new Date(launchData.window_start).toLocaleString()}
+                            </p>
                         </div>
                         <div className="mt-0 mb-4 flex-1">
                             <div className="flex flex-col justify-center px-4 lg:pl-0">
                                 <h1 className="text-2xl lg:mt-4 font-bold mb-2">{launchData.name}</h1>
                                 {launchData.mission && <em className='mb-3 text-blue-300'>{launchData.mission.type} mission to {launchData.mission.orbit.name} ({launchData.mission.orbit.abbrev}) by {launchData.launch_service_provider.name}</em>}
-                                <p className="mb-4 text-2xl md:text-4xl font-bold">{new Date(launchData.net).toLocaleString()}</p> 
+                                {/* <p className="mb-4 text-2xl md:text-4xl font-bold">{new Date(launchData.net).toLocaleString()}</p>  */}
+                                <Countdown
+                                    date={launchData.net}
+                                    renderer={({ days, hours, minutes, seconds, completed }) => (
+                                        <p className="mb-4 text-4xl font-bold">
+                                        {completed ? 'LIFTOFF!' : `T - ${days}d ${hours}h ${minutes}m ${seconds}s`}
+                                        </p>
+                                    )}
+                                />
                                 <p className='mb-4'>{launchData.mission?.description}</p>
                                 <div className='mb-1'>
-                                    {launchData.webcast_live === false && <a className='bg-gray-500 px-3 py-1 rounded'>Livestream</a>}
-                                    {launchData.webcast_live === true && <a className='bg-blue-900 hover:bg-blue-800 px-3 py-1 rounded' href={launchData.vidURLs}>Watch Now</a>}
+                                    {launchData.webcast_live === false && <a className='bg-gray-500 px-3 py-1 rounded'>Livestream Pending</a>}
+                                    {launchData.webcast_live === true && <a className='bg-blue-900 hover:bg-green-500 px-3 py-1 rounded' href={launchData.vidURLs}>Watch Now</a>}
                                 </div>
                             </div>
                         </div>
@@ -150,12 +198,9 @@ export default function LaunchDetailsPage({ launchData, setDetailPage }) {
                             <h1 className='text-2xl font-bold mb-5'>Comments</h1>
                             <CommentSection launchId={launchData.id}/>
                         </div>
-                        {/* <figure className='lg:w-1/3'>
-                            <img src={launchData.mission_patches[0]?.image_url}/>
-                            <figcaption className='text-white text-center'>{launchData.mission_patches[0]?.name}</figcaption>
-                        </figure> */}
                     </div>
                 </>
+        
     }
 
     return (
