@@ -15,7 +15,7 @@ export default function LaunchDetailsPage({ launchData, setDetailPage, authentic
  
     let comments 
     if (authenticated === true) {
-        comments = <CommentSection launchId={launchData.id}/>
+        comments = <CommentSection launchId={launchData.id} authenticated={authenticated}/>
     } else if (authenticated === false) {
         comments =
         <p>
@@ -26,7 +26,6 @@ export default function LaunchDetailsPage({ launchData, setDetailPage, authentic
     let page = <LoadingSpinner/>
            
     if (launchData) {
-
         let launchStatus
         const launchStatusData = launchData.status.abbrev
         if (launchStatusData === 'TBD') {
@@ -53,6 +52,14 @@ export default function LaunchDetailsPage({ launchData, setDetailPage, authentic
                 >
                 {launchStatusData.toUpperCase()}
                 </div>
+        } else if (launchStatusData === 'In Flight') {
+            launchStatus =
+                <div 
+                    title={launchData.status.description} 
+                    className='bg-blue-500 border-2 border-blue-200 text-white font-bold py-1 px-2 rounded w-fit absolute top-0 left-0 m-3'
+                >
+                {launchStatusData.toUpperCase()}
+                </div>
         } else (
             launchStatus =
                 <div 
@@ -70,7 +77,7 @@ export default function LaunchDetailsPage({ launchData, setDetailPage, authentic
                         <div className="m-4 lg:w-1/2 lg:mr-4 relative">
                             <img src={launchData.image} className="w-full lg:h-auto border-4 border-blue-300"/>
                             {launchStatus}
-                            <p className='bg-gray-500 bg-opacity-75 text-xs px-2 py-1 rounded m-3 absolute bottom-0 right-0'>
+                            <p className='bg-gray-500 bg-opacity-75 text-xs px-2 py-1 rounded m-3 absolute top-0 right-0'>
                                 Window Opens: {new Date(launchData.window_start).toLocaleString()}
                             </p>
                         </div>
@@ -90,7 +97,7 @@ export default function LaunchDetailsPage({ launchData, setDetailPage, authentic
                                 <p className='mb-4'>{launchData.mission?.description}</p>
                                 <div className='mb-1'>
                                     {launchData.webcast_live === false && <a className='bg-gray-500 px-3 py-1 rounded'>Livestream Pending</a>}
-                                    {launchData.webcast_live === true && <a className='bg-blue-900 hover:bg-green-500 px-3 py-1 rounded' href={launchData.vidURLs}>Watch Now</a>}
+                                    {/* {launchData.vidURLs[0].url && <a className='bg-blue-900 hover:bg-blue-500 cursor-pointer px-3 py-1 rounded' href={launchData.vidURLs[0].url} target="blank">Watch Now</a>} */}
                                 </div>
                             </div>
                         </div>

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { postComment, getComments } from "../../../utils/backend"
 import Comment from "../Comment"
 
-export default function CommentSection({ launchId }) {
+export default function CommentSection({ launchId, authenticated}) {
     // Save comments queried from the database in state
     const [comments, setComments] = useState([])
     const [showCreateForm, setShowCreateForm] = useState(false)
@@ -62,6 +62,7 @@ export default function CommentSection({ launchId }) {
                 key={comment._id}
                 data={comment}
                 refreshComments={refreshComments}
+                authenticated={authenticated}
             />
         })
     }

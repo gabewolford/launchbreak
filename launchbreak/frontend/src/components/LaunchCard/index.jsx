@@ -5,40 +5,48 @@ import Countdown from 'react-countdown';
 export default function LaunchCard({ launchData, setDetailPage }) {
 
     let launchStatus
-    const launchStatusData = launchData.status.abbrev
-    if (launchStatusData === 'TBD') {
-        launchStatus = 
-            <div 
-                title={launchData.status.description} 
-                className='bg-yellow-400 text-white font-bold py-1 px-2 rounded w-fit absolute top-0 left-0 m-3'
-            >
-            {launchStatusData.toUpperCase()}
-            </div>
-    } else if (launchStatusData === 'TBC') {
-        launchStatus = 
-            <div 
-                title={launchData.status.description} 
-                className='bg-yellow-400 text-white font-bold py-1 px-2 rounded w-fit absolute top-0 left-0 m-3'
-            >
-            {launchStatusData.toUpperCase()}
-            </div>
-    } else if (launchStatusData === 'Go') {
-        launchStatus =
-            <div 
-                title={launchData.status.description} 
-                className='bg-green-500 text-white font-bold py-1 px-2 rounded w-fit absolute top-0 left-0 m-3'
-            >
-            {launchStatusData.toUpperCase()}
-            </div>
-    } else (
-        launchStatus =
-            <div 
-                title={launchData.status.description} 
-                className='bg-red-500 text-white font-bold py-1 px-2 rounded w-fit absolute top-0 left-0 m-3'
-            >
-            {launchStatusData.toUpperCase()}
-            </div>
-    )
+        const launchStatusData = launchData.status.abbrev
+        if (launchStatusData === 'TBD') {
+            launchStatus = 
+                <div 
+                    title={launchData.status.description} 
+                    className='bg-yellow-400 text-white font-bold py-1 px-2 rounded w-fit absolute top-0 left-0 m-3'
+                >
+                {launchStatusData.toUpperCase()}
+                </div>
+        } else if (launchStatusData === 'TBC') {
+            launchStatus = 
+                <div 
+                    title={launchData.status.description} 
+                    className='bg-yellow-400 text-white font-bold py-1 px-2 rounded w-fit absolute top-0 left-0 m-3'
+                >
+                {launchStatusData.toUpperCase()}
+                </div>
+        } else if (launchStatusData === 'Go') {
+            launchStatus =
+                <div 
+                    title={launchData.status.description} 
+                    className='bg-green-500 text-white font-bold py-1 px-2 rounded w-fit absolute top-0 left-0 m-3'
+                >
+                {launchStatusData.toUpperCase()}
+                </div>
+        } else if (launchStatusData === 'In Flight') {
+            launchStatus =
+                <div 
+                    title={launchData.status.description} 
+                    className='bg-blue-500 border-2 border-blue-200 text-white font-bold py-1 px-2 rounded w-fit absolute top-0 left-0 m-3'
+                >
+                {launchStatusData.toUpperCase()}
+                </div>
+        } else (
+            launchStatus =
+                <div 
+                    title={launchData.status.description} 
+                    className='bg-red-500 text-white font-bold py-1 px-2 rounded w-fit absolute top-0 left-0 m-3'
+                >
+                {launchStatusData.toUpperCase()}
+                </div>
+        )
 
 
     return (
@@ -51,9 +59,9 @@ export default function LaunchCard({ launchData, setDetailPage }) {
                 <div className="lg:w-1/2 lg:mr-4 relative">
                     <img src={launchData.image} className="max-h-fill w-full lg:h-auto border-4 border-blue-300"/>
                     {launchStatus}
-                    <p className='bg-gray-500 bg-opacity-75 text-xs px-2 py-1 rounded m-3 absolute bottom-0 right-0'>
+                    <div className='bg-gray-500 bg-opacity-75 text-xs px-2 py-1 rounded m-3 absolute top-0 right-0'>
                         Window Opens: {new Date(launchData.window_start).toLocaleString()}
-                    </p>
+                    </div>
                 </div>
                 <div className="flex-1 mt-4 lg:mt-0">
                     <div className="flex flex-col justify-center">
