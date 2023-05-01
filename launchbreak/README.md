@@ -3,6 +3,8 @@ Launchbreak is a MERN-stack application for launch lovers and space fanactics.
 
 Using real-time data from two robust APIs, the idea is that Launchbreak is somewhere you can visit on your lunchbreak (or whenever) and catch up on recent space news and upcoming launches in just a few clicks.
 
+Live site: https://launchbreak.herokuapp.com/
+
 ![launchbreak-mockup](https://user-images.githubusercontent.com/98293872/235309568-a75dbab7-8c03-4b1c-b04b-e5f2635823e8.png)
 
 
