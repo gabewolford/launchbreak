@@ -19,8 +19,6 @@ Using real-time data from two robust APIs, the idea is that Launchbreak is somew
 
 
 ## Installation Instructions
-No need to install, as this app is hosted and live on Heroku [HERE](https://launchbreak.herokuapp.com/).
-
 If you'd like to fork the repo, you'll need to set up an `.env` file at the root level like this:
 
 ```
@@ -43,14 +41,15 @@ Both the [Launch Library API](https://ll.thespacedevs.com/docs/) and [Spacefligh
 ## Hurdles
 - Had some struggles getting JWT implemented. In my comments controller, the userId tied to comments failed validation because the operation was comparing a returned object to a string, even though the tokens matched. 
 - Because the launchId was quite long, I tried using the 'slug' from the launch object for the url displayed in the browser. To do this I needed to save the slug as an id and use the actual launchId set the detail page each time the card was clicked. Doing this caused problems on page refreshes, and I was unable to use useParams. I ended up refactoring to just use the id.
+- I attempted a countdown clock in place of the launch time (a few different ways), but think it was running every second on every launch on the page, which in turn I beleive was pinging the API a few hundred times per second. I lost access to both the dev and production APIs for a few hours, so scrapped the idea. 
 
 ## Unsolved Problems
 - Nothing unsolved as much as they are next steps...
 
 ## Next Steps
-- Build out user model for account page, have the ability to create a watchlist for upcoming launches
+- Build out user model for account page, have the ability to create a "watchlist" for upcoming launches
 - Pagination/infinite scroll the index pages
-- Change the launch time and date to a countdown clock
+- Change the launch time and date to a countdown clock in a reliable way
 - Create a dropdown filter the index pages by using different API endpoint query params
 - Intro animation for home page
 - Improve UI and how data is displayed
