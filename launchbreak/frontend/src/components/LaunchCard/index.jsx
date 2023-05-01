@@ -38,11 +38,11 @@ export default function LaunchCard({ launchData, setDetailPage }) {
                 >
                 {launchStatusData.toUpperCase()}
                 </div>
-        } else if (launchStatusData === 'In Flight') {
+        } else if (launchStatusData === 'Success') {
             launchStatus =
                 <div 
                     title={launchData.status.description} 
-                    className='bg-orange-500 border-2 border-blue-200 text-white font-bold py-1 px-2 rounded w-fit absolute top-0 left-0 m-3'
+                    className='bg-blue-500 border-2 border-blue-200 text-white font-bold py-1 px-2 rounded w-fit absolute top-0 left-0 m-3'
                 >
                 {launchStatusData.toUpperCase()}
                 </div>
