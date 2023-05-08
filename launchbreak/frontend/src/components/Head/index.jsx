@@ -100,11 +100,11 @@ export default function Head({ authenticated, setAuthenticated }) {
                 to="/agencies">
                 Agencies
             </Link>
-            <Link 
+            {/* <Link 
                 className="text-white bg-gray-500 bg-opacity-75 md:bg-transparent px-4 py-2 md:p-0 md:py-1 hover:text-orange-400 hover-underline-animation"
                 to="/spacecraft">
                 Spacecraft
-            </Link>
+            </Link> */}
             <Link 
                 className="text-white bg-gray-500 bg-opacity-75 md:bg-transparent px-4 py-2 md:p-0 md:py-1 rounded-b-lg hover:text-orange-400 hover-underline-animation"
                 to="/astronauts">
