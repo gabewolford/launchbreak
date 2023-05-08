@@ -9,7 +9,7 @@ export default function LaunchDetailsPage({ launchData, setDetailPage, authentic
     const { id } = useParams()
     
     useEffect(() => {
-        getData(`https://ll.thespacedevs.com/2.2.0/launch/upcoming/${id}`)
+        getData(`https://lldev.thespacedevs.com/2.2.0/launch/upcoming/${id}`)
             .then(res => setDetailPage(res))  
     }, [])
  
@@ -77,11 +77,19 @@ export default function LaunchDetailsPage({ launchData, setDetailPage, authentic
                 {launchStatusData.toUpperCase()}
                 </div>
         )
+
+        let livestreamStatus
+        if (launchData.webcast_live === false) {
+            livestreamStatus = <a className='bg-gray-500 px-3 py-1 rounded'>Livestream Inactive</a>
+        } else if (launchData.vidURLs[0].url) {
+            livestreamStatus = <a className='bg-blue-900 hover:bg-blue-500 cursor-pointer px-3 py-1 rounded' href={launchData.vidURLs[0].url} target="blank">Livestream</a>
+        }
+
         page = <>
-                    <div className="mx-12 lg:max-w-[75vw] lg:mx-auto">
+                    <div className="mx-6 md:mx-12 lg:mx-auto lg:max-w-[70vw]">
                         <h1 className="text-3xl mt-6 mb-12 font-bold">Launch Details</h1>
                     </div>
-                    <div className='mx-12 lg:max-w-[75vw] lg:mx-auto max-h-fit flex flex-col lg:flex-row bg-gray-600 rounded-lg'>
+                    <div className='mx-6 md:mx-12 lg:max-w-[75vw] lg:mx-auto max-h-fit flex flex-col lg:flex-row bg-gray-600 rounded-lg'>
                         <div className="m-4 lg:w-1/2 lg:mr-4 relative">
                             <img src={launchData.image} className="w-full lg:h-auto border-4 border-blue-300"/>
                             {launchStatus}
@@ -93,25 +101,24 @@ export default function LaunchDetailsPage({ launchData, setDetailPage, authentic
                             <div className="flex flex-col justify-center px-4 lg:pl-0">
                                 <h1 className="text-2xl lg:mt-4 font-bold mb-2">{launchData.name}</h1>
                                 {launchData.mission && <em className='mb-3 text-blue-300'>{launchData.mission.type} mission to {launchData.mission.orbit.name} ({launchData.mission.orbit.abbrev}) by {launchData.launch_service_provider.name}</em>}
-                                <p className="mb-4 text-2xl md:text-4xl font-bold">{new Date(launchData.net).toLocaleString()}</p>
-                                {/* <Countdown
+                                {/* <p className="mb-4 text-2xl md:text-4xl font-bold">{new Date(launchData.net).toLocaleString()}</p> */}
+                                <Countdown
                                     date={launchData.net}
                                     renderer={({ days, hours, minutes, seconds, completed }) => (
                                         <p className="mb-4 text-4xl font-bold">
-                                        {completed ? 'LIFTOFF!' : `T - ${days}d ${hours}h ${minutes}m ${seconds}s`}
+                                        {completed ? `T - 0d 0h 0m 0s` : `T - ${days}d ${hours}h ${minutes}m ${seconds}s`}
                                         </p>
                                     )}
-                                /> */}
+                                />
                                 <p className='mb-4'>{launchData.mission?.description}</p>
                                 <div className='mb-1'>
-                                    {launchData.webcast_live === false && <a className='bg-gray-500 px-3 py-1 rounded'>Livestream Pending</a>}
-                                    {/* {launchData.vidURLs[0].url && <a className='bg-blue-900 hover:bg-blue-500 cursor-pointer px-3 py-1 rounded' href={launchData.vidURLs[0].url} target="blank">Watch Now</a>} */}
+                                    {livestreamStatus}
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div className='m-6 max-h-fit flex flex-col lg:flex-row gap-5 mx-12 lg:max-w-[75vw] lg:mx-auto'>
+                    <div className='m-6 max-h-fit flex flex-col lg:flex-row gap-5 mx-6 md:mx-12 lg:max-w-[75vw] lg:mx-auto'>
                         <div className='bg-gray-600 rounded-lg h-fit lg:w-1/2'>
                             <div className="px-4 pt-4">
                                 <h2 className="text-xl font-bold mb-4">Launching From</h2>
