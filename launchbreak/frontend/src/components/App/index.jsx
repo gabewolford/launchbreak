@@ -34,7 +34,7 @@ function App() {
 
 
   useEffect(() => {
-    getData('https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=20')
+    getData('https://lldev.thespacedevs.com/2.2.0/launch/upcoming/?limit=20')
       .then(res => {
         setLaunches(res.results)
     })
@@ -42,15 +42,15 @@ function App() {
       .then(res => {
         setNews(res.results)
     })
-    getData('https://ll.thespacedevs.com/2.2.0/agencies/?featured=true')
+    getData('https://lldev.thespacedevs.com/2.2.0/agencies/?featured=true')
       .then(res => {
         setAgencies(res.results)
     })
-    getData('https://ll.thespacedevs.com/2.2.0/spacecraft/?limit=50')
+    getData('https://lldev.thespacedevs.com/2.2.0/spacecraft/?limit=50')
       .then(res => {
         setSpacecraft(res.results)
     })
-    getData('https://ll.thespacedevs.com/2.2.0/astronaut/?order=id&limit=100')
+    getData('https://lldev.thespacedevs.com/2.2.0/astronaut/?order=id&limit=100')
       .then(res => {
         setAstronauts(res.results)
     })

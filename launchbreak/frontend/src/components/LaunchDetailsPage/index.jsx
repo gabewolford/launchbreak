@@ -9,7 +9,7 @@ export default function LaunchDetailsPage({ launchData, setDetailPage, authentic
     const { id } = useParams()
     
     useEffect(() => {
-        getData(`https://ll.thespacedevs.com/2.2.0/launch/upcoming/${id}`)
+        getData(`https://lldev.thespacedevs.com/2.2.0/launch/upcoming/${id}`)
             .then(res => setDetailPage(res))  
     }, [])
  
