@@ -9,7 +9,7 @@ export default function LaunchesPage({ setDetailPage, setAuthenticated }) {
   const [launches, setFetchedLaunches] = useState([])
 
   useEffect(() => {
-    const url = `https://lldev.thespacedevs.com/2.2.0/launch/upcoming/?limit=${perPage}&offset=${(page - 1) * perPage}`;
+    const url = `https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=${perPage}&offset=${(page - 1) * perPage}`;
     getData(url)
         .then(res => {
             setFetchedLaunches(prevLaunches => [...prevLaunches, ...res.results]);
@@ -29,7 +29,7 @@ export default function LaunchesPage({ setDetailPage, setAuthenticated }) {
   const handleNextPage = () => {
     const nextPage = page + 1;
     const nextOffset = nextPage * perPage;
-    const url = `https://lldev.thespacedevs.com/2.2.0/launch/upcoming/?limit=${perPage * 3}&offset=${nextOffset}`;
+    const url = `https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=${perPage * 3}&offset=${nextOffset}`;
 
     getData(url)
       .then(res => {
