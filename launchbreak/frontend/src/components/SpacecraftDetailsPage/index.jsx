@@ -8,7 +8,7 @@ export default function SpacecraftDetailsPage({ spacecraftData, setDetailPage })
     const { id } = useParams()
 
     useEffect(() => {
-        getData(`https://lldev.thespacedevs.com/2.2.0/spacecraft/${id}`)
+        getData(`https://ll.thespacedevs.com/2.2.0/spacecraft/${id}`)
             .then(res => setDetailPage(res))
     }, [])
 

@@ -9,7 +9,7 @@ export default function LaunchesPage({ setDetailPage, setAuthenticated }) {
   const [launches, setFetchedLaunches] = useState([])
 
   useEffect(() => {
-    const url = `https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=${perPage}&offset=${(page - 1) * perPage}`;
+    const url = `https://lldev.thespacedevs.com/2.2.0/launch/upcoming/?limit=${perPage}&offset=${(page - 1) * perPage}`;
     getData(url)
         .then(res => {
             setFetchedLaunches(prevLaunches => [...prevLaunches, ...res.results]);
@@ -29,7 +29,7 @@ export default function LaunchesPage({ setDetailPage, setAuthenticated }) {
   const handleNextPage = () => {
     const nextPage = page + 1;
     const nextOffset = nextPage * perPage;
-    const url = `https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=${perPage * 3}&offset=${nextOffset}`;
+    const url = `https://lldev.thespacedevs.com/2.2.0/launch/upcoming/?limit=${perPage * 3}&offset=${nextOffset}`;
 
     getData(url)
       .then(res => {
@@ -61,7 +61,7 @@ export default function LaunchesPage({ setDetailPage, setAuthenticated }) {
   return (
     <>
       <div className="mx-6 md:mx-12 lg:w-[70vw] lg:mx-auto">
-        <h1 className="mt-6 mb-12 text-3xl font-bold text-white">Upcoming Launches</h1>
+        <h1 className="mt-6 mb-12 text-3xl font-bold text-white">All Upcoming Launches</h1>
         <div className="grid grid-cols-1 lg:w-[70vw] mx-auto">
           {paginatedLaunches.length > 0 ? (
             paginatedLaunches.map((launch, i) => (

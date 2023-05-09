@@ -9,7 +9,7 @@ export default function AstronautDetailsPage({ astronautData, setDetailPage }) {
     const { id } = useParams()
 
     useEffect(() => {
-        getData(`https://lldev.thespacedevs.com/2.2.0/astronaut/${id}`)
+        getData(`https://ll.thespacedevs.com/2.2.0/astronaut/${id}`)
             .then(res => setDetailPage(res))
     }, [])
 

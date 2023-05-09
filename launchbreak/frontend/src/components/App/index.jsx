@@ -5,7 +5,7 @@ import AuthFormPage from '../AuthFormPage'
 import Head from "../Head"
 import HomePage from '../HomePage'
 import LaunchesPage from "../LaunchesPage"
-import LaunchCard from "../LaunchCard"
+import NextLaunchCard from "../NextLaunchCard"
 import LaunchDetailsPage from "../LaunchDetailsPage"
 import NewsPage from "../NewsPage"
 import NewsCard from "../NewsCard"
@@ -25,6 +25,8 @@ import './styles.css'
 
 function App() {
   const [launches, setLaunches] = useState([])
+  const [nextLaunch, setNextLaunch] = useState([])
+  const [recentNews, setRecentNews] = useState([])
   const [news, setNews] = useState([])
   const [agencies, setAgencies] = useState([])
   const [spacecrafts, setSpacecraft] = useState([])
@@ -34,23 +36,32 @@ function App() {
 
 
   useEffect(() => {
+    getData('https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=1')
+      .then(res => {
+        setNextLaunch(res.results)
+    })
 
     getData('https://api.spaceflightnewsapi.net/v4/articles/')
       .then(res => {
         setNews(res.results)
     })
 
-    getData('https://lldev.thespacedevs.com/2.2.0/agencies/?featured=true')
+    getData('https://api.spaceflightnewsapi.net/v4/articles/?limit=4')
+      .then(res => {
+        setRecentNews(res.results)
+    })
+
+    getData('https://ll.thespacedevs.com/2.2.0/agencies/?featured=true')
       .then(res => {
         setAgencies(res.results)
     })
 
-    getData('https://lldev.thespacedevs.com/2.2.0/spacecraft/?limit=50')
+    getData('https://ll.thespacedevs.com/2.2.0/spacecraft/?limit=50')
       .then(res => {
         setSpacecraft(res.results)
     })
 
-    getData('https://lldev.thespacedevs.com/2.2.0/astronaut/?order=id&limit=100')
+    getData('https://ll.thespacedevs.com/2.2.0/astronaut/?order=id&limit=100')
       .then(res => {
         setAstronauts(res.results)
     })
@@ -58,9 +69,22 @@ function App() {
     setAuthenticated(localStorage.getItem('userToken') ? true : false)
       }, [])
 
+
+    let nextLaunches
+    if (nextLaunch.length > 0) {
+        nextLaunches = nextLaunch
+          .map((launch, i) => <NextLaunchCard key={i} launchData={launch} setDetailPage={setDetailPage}/>)
+    } 
+
     let newsList
     if (news.length > 0) {
         newsList = news
+          .map((news, i) => <NewsCard key={i} newsData={news} />)
+    } 
+
+    let recentNewsList
+    if (recentNews.length > 0) {
+        recentNewsList = recentNews
           .map((news, i) => <NewsCard key={i} newsData={news} />)
     } 
 
@@ -90,7 +114,7 @@ function App() {
       <Head authenticated={authenticated} setAuthenticated={setAuthenticated}/>
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage launchData={nextLaunches} recentNewsData={recentNewsList} setDetailPage={setDetailPage} />} />
         <Route path="/auth/:formType" element={<AuthFormPage authenticated={authenticated} setAuthenticated={setAuthenticated}/>} />
         <Route path="/launches" element={<LaunchesPage launches={launches} setLaunches={setLaunches} setDetailPage={setDetailPage} setAuthenticated={setAuthenticated} />} />
         <Route path="/launch/:id" element={<LaunchDetailsPage launchData={detailPage} setDetailPage={setDetailPage} authenticated={authenticated} />}/>
