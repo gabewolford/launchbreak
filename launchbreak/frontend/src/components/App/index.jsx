@@ -57,13 +57,12 @@ function App() {
     setAuthenticated(localStorage.getItem('userToken') ? true : false)
   }, [])
 
-
     let upcomingLaunches
     if (launches.length > 0) {
         upcomingLaunches = launches
-          .map((launch, i) => <LaunchCard key={i} launchData={launch} setDetailPage={setDetailPage}/>)
-    } 
-
+          .map((launch, i) => (<LaunchCard key={i} launchData={launch} setDetailPage={setDetailPage} />
+        ));
+    }
 
     let newsList
     if (news.length > 0) {
