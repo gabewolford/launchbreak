@@ -86,7 +86,7 @@ export default function LaunchDetailsPage({ launchData, setDetailPage, authentic
         }
 
         page = <>
-                    <div className="mx-6 md:mx-12 lg:mx-auto lg:max-w-[70vw]">
+                    <div className="mx-6 md:mx-12 lg:mx-auto lg:max-w-[75vw]">
                         <h1 className="text-3xl mt-6 mb-12 font-bold">Launch Details</h1>
                     </div>
                     <div className='mx-6 md:mx-12 lg:max-w-[75vw] lg:mx-auto max-h-fit flex flex-col lg:flex-row bg-gray-600 rounded-lg'>
