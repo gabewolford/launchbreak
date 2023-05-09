@@ -20,10 +20,10 @@ export default function AstronautDetailsPage({ astronautData, setDetailPage }) {
     
         if (astronautData.in_space === true) {
             page = <>
-                    <div className="mx-12 lg:max-w-[75vw] lg:mx-auto">
+                    <div className="mx-6 md:mx-12 lg:max-w-[75vw] lg:mx-auto">
                             <h1 className="text-3xl mt-6 mb-12 font-bold">Astronaut Details</h1>
                     </div>
-                    <div className="flex rounded-lg bg-gray-600 border-4 border-orange-400 mx-12 lg:max-w-[70vw] lg:mx-auto">
+                    <div className="flex rounded-lg bg-gray-600 border-4 border-orange-400 mx-6 md:mx-12 lg:max-w-[70vw] lg:mx-auto">
                         <div className="flex-1 m-4 relative">
                             <img src={astronautData.profile_image} className="w-full border-2 border-blue-300" />
                             {inSpaceBadge}
@@ -66,11 +66,11 @@ export default function AstronautDetailsPage({ astronautData, setDetailPage }) {
                             </div>
                         </div>
                     </div>
-                    <div className="lg:hidden rounded-lg bg-gray-600 mx-12 mt-4 p-4">
+                    <div className="lg:hidden rounded-lg bg-gray-600 mx-6 md:mx-12 mt-4 p-4">
                         <h1 className='text-2xl font-bold mb-4'>Biography</h1>
                         <p className='bg-gray-500 p-4 rounded'>{astronautData.bio}</p>
                     </div>
-                    <div className="rounded-lg bg-gray-600 mx-12 lg:max-w-[70vw] lg:mx-auto mt-4 p-4">
+                    <div className="rounded-lg bg-gray-600 mx-6 md:mx-12 lg:max-w-[70vw] lg:mx-auto mt-4 p-4">
                         <h1 className='text-2xl font-bold mb-4'>Mission Info</h1>
                         <div className="bg-gray-500 p-2 mb-2 w-fit rounded">
                             <p className="text-md md:text-sm"><em>Flights:&nbsp;&nbsp;</em>{astronautData.flights_count}</p>
@@ -88,10 +88,10 @@ export default function AstronautDetailsPage({ astronautData, setDetailPage }) {
                 </>
         } else {
             page = <>
-                    <div className="mx-12 lg:max-w-[75vw] lg:mx-auto">
+                    <div className="mx-6 md:mx-12 lg:max-w-[75vw] lg:mx-auto">
                         <h1 className="text-3xl mt-6 mb-12 font-bold">Astronaut Details</h1>
                     </div>
-                    <div className="flex rounded-lg bg-gray-600 mx-12 lg:max-w-[75vw] lg:mx-auto">
+                    <div className="flex rounded-lg bg-gray-600 mx-6 md:mx-12 lg:max-w-[75vw] lg:mx-auto">
                         <div className="flex-1 m-4 relative">
                             <img src={astronautData.profile_image} className="w-full border-2 border-blue-300" />
                         </div>
@@ -133,11 +133,11 @@ export default function AstronautDetailsPage({ astronautData, setDetailPage }) {
                             </div>
                         </div>
                     </div>
-                    <div className="lg:hidden bg-gray-600 rounded-lg mx-12 lg:max-w-[75vw] mt-4 p-4">
+                    <div className="lg:hidden bg-gray-600 rounded-lg mx-6 md:mx-12 lg:max-w-[75vw] mt-4 p-4">
                         <h1 className='text-2xl font-bold mb-4'>Biography</h1>
                         <p className='bg-gray-500 p-4 rounded'>{astronautData.bio}</p>
                     </div>
-                    <div className="rounded-lg bg-gray-600 mx-12 lg:max-w-[75vw] lg:mx-auto mt-4 p-4">
+                    <div className="rounded-lg bg-gray-600 mx-6 md:mx-12 lg:max-w-[75vw] lg:mx-auto mt-4 p-4">
                         <h1 className='text-2xl font-bold mb-4'>Mission Info</h1>
                         <div className="bg-gray-500 p-2 mb-2 w-fit rounded">
                             <p className="text-md md:text-sm"><em>Flights:&nbsp;&nbsp;</em>{astronautData.flights_count}</p>

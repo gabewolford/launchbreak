@@ -89,7 +89,7 @@ export default function AgencyDetailsPage({ agencyData, setDetailPage }) {
         } 
 
         page = <>
-                <div className="mx-12 lg:max-w-[75vw] lg:mx-auto">
+                <div className="mx-6 md:mx-12 lg:max-w-[75vw] lg:mx-auto">
                     <h1 className="text-3xl mt-6 mb-12 font-bold">Agency Details</h1>
 
                     <div className="flex rounded-lg bg-gray-600 lg:max-w-[75vw]">
