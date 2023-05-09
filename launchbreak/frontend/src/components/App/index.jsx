@@ -34,35 +34,29 @@ function App() {
 
 
   useEffect(() => {
-    getData('https://lldev.thespacedevs.com/2.2.0/launch/upcoming/?limit=20')
-      .then(res => {
-        setLaunches(res.results)
-    })
+
     getData('https://api.spaceflightnewsapi.net/v4/articles/')
       .then(res => {
         setNews(res.results)
     })
+
     getData('https://lldev.thespacedevs.com/2.2.0/agencies/?featured=true')
       .then(res => {
         setAgencies(res.results)
     })
+
     getData('https://lldev.thespacedevs.com/2.2.0/spacecraft/?limit=50')
       .then(res => {
         setSpacecraft(res.results)
     })
+
     getData('https://lldev.thespacedevs.com/2.2.0/astronaut/?order=id&limit=100')
       .then(res => {
         setAstronauts(res.results)
     })
-    setAuthenticated(localStorage.getItem('userToken') ? true : false)
-  }, [])
 
-    let upcomingLaunches
-    if (launches.length > 0) {
-        upcomingLaunches = launches
-          .map((launch, i) => (<LaunchCard key={i} launchData={launch} setDetailPage={setDetailPage} />
-        ));
-    }
+    setAuthenticated(localStorage.getItem('userToken') ? true : false)
+      }, [])
 
     let newsList
     if (news.length > 0) {
@@ -98,7 +92,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/auth/:formType" element={<AuthFormPage authenticated={authenticated} setAuthenticated={setAuthenticated}/>} />
-        <Route path="/launches" element={<LaunchesPage upcomingLaunches={upcomingLaunches} setAuthenticated={setAuthenticated} />} />
+        <Route path="/launches" element={<LaunchesPage launches={launches} setLaunches={setLaunches} setDetailPage={setDetailPage} setAuthenticated={setAuthenticated} />} />
         <Route path="/launch/:id" element={<LaunchDetailsPage launchData={detailPage} setDetailPage={setDetailPage} authenticated={authenticated} />}/>
         <Route path="/news" element={<NewsPage newsList={newsList}/>} />
         <Route path="/agencies" element={<AgenciesPage agencyList={agencyList}/>} />
