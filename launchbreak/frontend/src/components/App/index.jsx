@@ -21,6 +21,7 @@ import SpacecraftCard from "../SpacecraftCard"
 import AccountPage from "../AccountPage"
 import NotFoundPage from '../NotFoundPage'
 import './styles.css'
+import ScrollToTop from "../ScrollToTop"
 
 
 function App() {
@@ -112,6 +113,7 @@ function App() {
   return (
     <>
       <Head authenticated={authenticated} setAuthenticated={setAuthenticated}/>
+      <ScrollToTop />
 
       <Routes>
         <Route path="/" element={<HomePage launchData={nextLaunches} recentNewsData={recentNewsList} setDetailPage={setDetailPage} />} />
