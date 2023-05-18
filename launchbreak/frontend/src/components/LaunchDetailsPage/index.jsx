@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getData } from '../../../utils/api'
+import { Helmet } from 'react-helmet'
 import Countdown from 'react-countdown'
 import CommentSection from '../CommentSection'
 import LoadingSpinner from '../LoadingSpinner'
@@ -238,6 +239,9 @@ export default function LaunchDetailsPage({ launchData, setDetailPage, authentic
 
     return (
         <>
+            <Helmet>
+                <title>Launchbreak | Launch Details</title>
+            </Helmet>
             {page}
         </>
     )

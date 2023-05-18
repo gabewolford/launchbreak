@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { getData } from "../../../utils/api"
+import { Helmet } from "react-helmet"
 import AuthFormPage from '../AuthFormPage'
 import Head from "../Head"
 import HomePage from '../HomePage'

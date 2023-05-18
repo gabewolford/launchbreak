@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { getData } from '../../../utils/api'
 import { findFlagUrlByNationality } from "country-flags-svg";
+import { Helmet } from 'react-helmet';
 import LoadingSpinner from '../LoadingSpinner'
 
 
@@ -159,6 +160,9 @@ export default function AstronautDetailsPage({ astronautData, setDetailPage }) {
 
     return (
         <>  
+            <Helmet>
+                <title>Launchbreak | Astronaut Details</title>
+            </Helmet>
             {page}
         </>
     )

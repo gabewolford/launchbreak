@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { getData } from "../../../utils/api";
+import { Helmet } from "react-helmet";
 import LaunchCard from "../LaunchCard"
 import LoadingSpinner from "../LoadingSpinner"
 
@@ -61,6 +62,9 @@ export default function LaunchesPage({ setDetailPage, setAuthenticated }) {
   return (
     <>
       <div className="mx-6 md:mx-12 lg:w-[70vw] lg:mx-auto">
+        <Helmet>
+            <title>Launchbreak | Upcoming Launches</title>
+        </Helmet>
         <h1 className="mt-6 mb-12 text-3xl font-bold text-white">All Upcoming Launches</h1>
         <div className="grid grid-cols-1 lg:w-[70vw] mx-auto">
           {paginatedLaunches.length > 0 ? (
