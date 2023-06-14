@@ -39,7 +39,7 @@ function App() {
 
 
   useEffect(() => {
-    getData('https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=1')
+    getData('https://lldev.thespacedevs.com/2.2.0/launch/upcoming/?limit=1')
       .then(res => {
         setNextLaunch(res.results)
     })
