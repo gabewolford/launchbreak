@@ -27,7 +27,8 @@ export default function LaunchDetailsPage({ launchData, setDetailPage, authentic
     let page = <LoadingSpinner/>
            
     if (launchData) {
-        let launchStatus
+        let launchStatus, launchName
+        launchName = launchData?.name
         const launchStatusData = launchData.status.abbrev
         if (launchStatusData === 'TBD') {
             launchStatus = 
@@ -100,8 +101,8 @@ export default function LaunchDetailsPage({ launchData, setDetailPage, authentic
                         </div>
                         <div className="mt-0 mb-4 flex-1">
                             <div className="flex flex-col justify-center px-4 lg:pl-0">
-                                <h1 className="text-2xl lg:mt-4 font-bold mb-2">{launchData.name}</h1>
-                                {launchData.mission && <em className='mb-3 text-blue-300'>{launchData.mission.type} mission to {launchData.mission.orbit.name} ({launchData.mission.orbit.abbrev}) by {launchData.launch_service_provider.name}</em>}
+                                {launchData && <h1 className="text-2xl lg:mt-4 font-bold mb-2">{launchName}</h1>}
+                                {launchData.mission && <em className='mb-3 text-blue-300'>{launchData.mission.type} mission to {launchData.mission?.orbit?.name} ({launchData.mission.orbit.abbrev}) by {launchData?.launch_service_provider?.name}</em>}
                                 {/* <p className="mb-4 text-2xl md:text-4xl font-bold">{new Date(launchData.net).toLocaleString()}</p> */}
                                 <Countdown
                                     date={launchData.net}
